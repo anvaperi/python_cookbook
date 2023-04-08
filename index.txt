@@ -1,16 +1,18 @@
-00 UNRELATED TOPICS
-01 BASIC DATATYPES
-labels
-Basic datatypes
-numbers: bool, int, float, complex
+00 UNRELATED TOPICS ✓
+01 BASIC DATATYPES ✓
+labels ✗
+Basic datatypes ✓
+numbers: bool✓, int✓, float✓, complex✓
 02 COMPLEX NATIVE DATATYPES
-Iterables (Enum)
-Aggregation functions (zip)
+Iterables
+zip
+Aggregation functions
 bytes
 Str
 str & bytes methods
 only str methods
 regex
+Enum
 List
 Tuple
 named tuple (alternative to dict)
