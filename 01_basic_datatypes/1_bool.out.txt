@@ -1,7 +1,10 @@
 C:\Users\donan\python_cookbook\venv\Scripts\python.exe C:\Users\donan\python_cookbook\01_basic_datatypes\1_bool.py
-falsies:  [False, False, False, False, False, False, False, False, False, False, False]
-truthies:  [True, True, True]
-conditions:  [False, True, True, True, True, True, True, True, True, True]
+[<function <lambda> at 0x00000252CA2E3F40>, <function <lambda> at 0x00000252CA314040>, <function <lambda> at 0x00000252CA704A60>, <function <lambda> at 0x00000252CA704AF0>, <function <lambda> at 0x00000252CA704B80>, <function <lambda> at 0x00000252CA704C10>, <function <lambda> at 0x00000252CA704CA0>, <function <lambda> at 0x00000252CA704D30>]
+['✗✗', '✗✓', '✓✓', '✓✗']
+['✗✗✗', '✗✗✓', '✗✗✗', '✗✗✓', '✗✗✗', '✗✗✓', '✗✓✗', '✗✓✓', '✗✓✓', '✗✓✗', '✗✓✓', '✗✓✗', '✓✗✗', '✓✗✓', '✓✗✓', '✓✗✗', '✓✗✓', '✓✗✗', '✓✓✓', '✓✓✗', '✓✓✓', '✓✓✗', '✓✓✗', '✓✓✓']
+falsies:  ✗✗✗✗✗✗✗✗✗✗✗✗✗
+truthies:  ✓✓✓
+conditions:  ✗✓✓✓✓✓✓✓✗✓✓✓
 bool attrs:
  __abs__
 __add__
