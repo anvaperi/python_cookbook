@@ -19,3 +19,17 @@ print(Decimal(str(2.0 ** 0.5))) # '1.4142135623730951'
 print(Decimal(2) ** Decimal('0.5')) # '1.414213562373095048801688724'
 print(Decimal('NaN')) # 'NaN'
 print(Decimal('-Infinity')) # '-Infinity'
+print(Decimal(math.pi).as_integer_ratio()) # 355/113
+print(Decimal(-355).copy_abs())
+my_dec = Decimal('-234.87')
+print(my_dec)
+print(my_dec.is_finite())
+print(my_dec.is_infinite())
+print(my_dec.is_nan())
+print(my_dec.is_signed())
+print(my_dec.is_zero())
+print(Decimal('-0.0023487000').normalize(context=None))
+print((-my_dec).sqrt(context=None))
+
+
+print('bool attrs:\n',  '\n'.join(dir(Decimal)))

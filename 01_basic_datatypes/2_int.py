@@ -59,7 +59,6 @@ now = datetime.datetime.now()
 print(f'Today is {now:%d} of {now:%B} {now:%Y}')
 print(f'{now=:%Y-%m-%d}')
 print()
-print('int attrs:\n',  '\n'.join(dir(int)))
 i = 13
 # representing decimal 13 in binary, octal, and hexadecimal
 print(f"binary: {i:b}; octal: {i:o}; hex: {i:x} or {i:X}") # 'binary: 1101; octal: 15; hex: d or D'
@@ -86,3 +85,6 @@ import locale
 locale.setlocale(locale.LC_ALL, '')
 # then use format type 'n'
 print(f"{10 ** 6:n}") # '1,000,000'
+
+
+print('int attrs:\n',  '\n'.join(dir(int)))

@@ -96,3 +96,5 @@ print(f"{si:.3g}  {li:.3g}  {sf:.3g}  {lf:.3g}  {sc:.3g}") # '55   6.67e+05   7.
 print(f"{si:#.3g}  {li:#.3g}  {sf:#.3g}  {lf:#.3g}  {sc:#.3g}") #'55.0   6.67e+05   7.78   8.89e+03   9.00e+06'
 # In float types generally, the #-option forces a decimal point occurrence even when no digits follow it
 print(f"{10:#.0e}  {10:#.0f}  {10:#.0g}") # '1.e+01   10.   1.e+01'
+
+print('int attrs:\n',  '\n'.join(dir(float)))
