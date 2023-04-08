@@ -1,0 +1,49 @@
+C:\Users\donan\python_cookbook\venv\Scripts\python.exe C:\Users\donan\python_cookbook\01_basic_datatypes\5_complex.py
+root(-9):  3j
+log10(-100):  (2+3.141592653589793j)
+(1+2j) = 1.0 + 2.0 i = 2.23606797749979 ∠ 1.1071487177940904 rad
+(4+5j) ;  (4-5j)
+int attrs:
+ __abs__
+__add__
+__bool__
+__class__
+__delattr__
+__dir__
+__doc__
+__eq__
+__format__
+__ge__
+__getattribute__
+__getnewargs__
+__gt__
+__hash__
+__init__
+__init_subclass__
+__le__
+__lt__
+__mul__
+__ne__
+__neg__
+__new__
+__pos__
+__pow__
+__radd__
+__reduce__
+__reduce_ex__
+__repr__
+__rmul__
+__rpow__
+__rsub__
+__rtruediv__
+__setattr__
+__sizeof__
+__str__
+__sub__
+__subclasshook__
+__truediv__
+conjugate
+imag
+real
+
+Process finished with exit code 0
