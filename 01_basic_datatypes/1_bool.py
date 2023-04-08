@@ -27,9 +27,9 @@ lt = 1 < 9
 le = 0 <= 2
 match = 'a' in 'abc'
 not_match = 'w' not in 'abc'
-any_op = any([False, False, True])
-all_op = all([True, True, True])
-conditions = [eq, ne, gt, ge, lt, le, match, not_match, any_op, all_op]
+op_any = any([False, False, True])
+op_all = all([True, True, True])
+conditions = [eq, ne, gt, ge, lt, le, match, not_match, op_any, op_all]
 
 print('falsies: ',    [bool(to_check) for to_check in falsies])
 print('truthies: ',   [bool(to_check) for to_check in truthies])
