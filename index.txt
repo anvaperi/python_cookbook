@@ -1,0 +1,95 @@
+00 UNRELATED TOPICS
+01 BASIC DATATYPES
+labels
+Basic datatypes
+numbers: bool, int, float, complex
+02 COMPLEX NATIVE DATATYPES
+Iterables (Enum)
+Aggregation functions (zip)
+bytes
+Str
+str & bytes methods
+only str methods
+regex
+List
+Tuple
+named tuple (alternative to dict)
+Set
+frozenset
+dict
+OrderedDict
+Object serialization (persistent dicts called shelve)
+obj info
+I/O
+print, input
+Files
+open()
+03 DATA STRUCTURES
+Bloom filter
+Hash Table
+Ford-Fulkerson algorithm
+04 IMPERATIVE STRUCTURED Flow Control
+conditional expression
+if elif else
+switch case break -> They do not exist in Python
+for while
+Exceptions
+05 IMPERATIVE PROCEDURAL
+func
+Introspection
+06 GENERATORS
+Generators
+Recursive yield
+Fibonacci recursivo generador
+generator expresions (comprehension expressions)
+Subgenerators
+asynchronous generator
+comprehension list
+Conprehension set
+comprehension dictionaries
+comprehension expressions
+07 IMPERATIVE OOP
+class
+accessors
+08 IMPERATIVE PARALLEL
+Event toop
+A dialog with the event loop
+Looping
+Spawning child tasks
+Sleeping & timers
+Handling I/O
+Cancelling tasks
+Generator corrutine
+Corrutinas
+Chaining Coroutines
+Promises
+09 IMPERATIVE METAPROGRAMMING
+10 DECLARATIVE SQL
+sqlalchemy
+11 DECLARATIVE FUNCTIONAL
+function closure
+Python Decorators
+Decorators Chaining
+Late binding
+Map
+Filter
+Reduce
+12 ALGORITHMICS
+13 NATIVE FUNCTIONS, MODULES AND LIBRARIES
+modules
+module: argparse
+module reload
+my custom lib
+Pandas, NumPy, SciPy, MatPlotLib, SciKitLearn ...
+14 PERSONAL PROJECTS
+text color and emphasis
+problema de la sucesión del tablero de ajedrez
+Graphic calculator Project
+roman numerals
+balnu
+JP
+bits de paridad.
+abbreviations
+physical units
+Considerar tb error abs y rel ...
+list dict to dict list and vice versa
