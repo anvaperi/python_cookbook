@@ -1,0 +1,741 @@
+Bash altervatives
+Dash
+Zsh
+fish
+Bourne Shell
+Powershell
+Command Prompt
+
+Korn
+Xonsh
+Nushell
+_____________________
+https://linuxconfig.org/bash-scripting-tutorial
+https://www.freecodecamp.org/news/linux-command-line-bash-tutorial/
+
+https://tldp.org/LDP/abs/html/string-manipulation.html
+https://linuxcommand.org/index.php
+https://geekland.eu/uso-del-comando-awk-en-linux-y-unix-con-ejemplos/
+https://ostechnix.com/bash-associative-array/
+
+Linux folders: / /boot /etc /etc/passwd /etc/fstlab /etc/hosts /etc/init.d /bin /usr/bin /sbin /usr/sbin /usr /usr/share/X11 /usr/share/dict /usr/share/doc /usr/share/man /usr/local usr/local/bin /var /var/log /var/spool /lib /home /root /tmp /dev /dev/fd0 /proc /media 
+
+PATH=$PATH:~/newpath
+
+Bash commands types
+  executable program
+  shell built in command
+  shell function
+  alias
+
+$ this char means normal user privilege in the console
+# this char means superuser privileges
+
+$ uptime
+ 11:40:33 up  2:30,  0 users,  load average: 0.00, 0.00, 0.00
+
+$ cd ~ # goto home dir
+
+$ cal
+    January 2023
+Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7
+ 8  9 10 11 12 13 14
+15 16 17 18 19 20 21
+22 23 24 25 26 27 28
+29 30 31
+
+$ echo $(cal)
+February 2020 Su Mo Tu We Th Fr Sa 1 2 3 4 5 6 7 8 9 10 11 12 13 14
+15 16 17 18 19 20 21 22 23 24 25 26 27 28 29
+
+$ echo "$(cal)"
+February 2020
+Su Mo Tu We Th Fr Sa
+                1  2
+ 3  4  5  6  7  8  9
+10 11 12 13 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29
+
+$ echo $((4 * 8))
+32
+
+# multiple line commands:
+$ ls -l \
+   --reverse \
+   --human-readable \
+   --full-time
+
+# single vs double quotes
+
+$ echo text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER
+text /home/me/ls-output.txt a b foo 4 me
+
+$ echo "text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER"
+text ~/*.txt {a,b} foo 4 me
+
+$ echo 'text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER'
+text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER
+
+$ echo "The balance for user $USER is: \$5.00"
+The balance for user me is: $5.00
+
+$  echo -e "\a1\n\t2\\"  # \a Beep!
+1
+        2\
+
+$ echo gat{o,a}{,s} rosa{,s}
+gato gatos gata gatas rosa rosas
+$ echo {1..3}{Z..X}
+1Z 1Y 1X 2Z 2Y 2X 3Z 3Y 3X
+$ echo blood types: {A,B,AB,0}{+,-}
+blood types: A+ A- B+ B- AB+ AB- 0+ 0-
+$ echo a{A{1,2},B{3,4}}b
+aA1b aA2b aB3b aB4b
+$ mkdir photos
+$ cd photos
+$ mkdir 201{7..9}-{01..12}
+$ ls
+2017-01  2017-05  2017-09  2018-01  2018-05  2018-09  2019-01  2019-05  2019-09
+2017-02  2017-06  2017-10  2018-02  2018-06  2018-10  2019-02  2019-06  2019-10
+2017-03  2017-07  2017-11  2018-03  2018-07  2018-11  2019-03  2019-07  2019-11
+2017-04  2017-08  2017-12  2018-04  2018-08  2018-12  2019-04  2019-08  2019-12
+
+$ ls -l $(which cp)
+-rwxr-xr-x 1 root root 153976 Sep  5  2019 /usr/bin/cp
+
+# parameter expansion, arithmetic expansion, and command substitution still take place within double quotes
+$ echo "$USER $((2+2)) $(cal)"
+
+# Wildcards
+* matches any chars
+? matches any single char
+[charset] matches any char within the charset
+[!charset] matches any char not within the charset
+[:alnum:] alphanumeric
+[:alpha:] alphabetic
+[:digit:] numerals
+[[:digit:]] a single digit
+[:upper:] [:lower:] uppercase/lowercase chars
+[[:upper:]] a single uppercase char
+
+
+$ type [command]
+$ which [command] # location
+$ help -m [cmd]
+$ [command] --help
+$ man [command]
+$ cp [original file] [copy file]
+$ cp [file] [dir]
+$ mv [old filename] [new filename]
+$ mv [files] [dir]
+$ rm [files]
+$ rm -r [dirs]
+$ mkdir [new dir]
+$ touch [new empty files]
+
+$ ls # lists all files and subfolders
+$ less [text file] # Shows [text file] content to exit with Q
+$ file "dummy text.txt" # describes [any file] content
+dummy text.txt: ASCII text, with very long lines, with CRLF line terminators
+
+$ echo "[string]" # displays [string]
+$ cat [options] [file] # displays file content
+# options
+  -b numer non-blank output lines
+  -n numer all output lines
+  -s squeeze blank lines
+  -v displays many nonprinting chars
+
+$ cat [file1] [file2]  # displays both files concatenated
+$ cat [file] | sort    # orders [file] lines
+$ sort -nr < [file]	       # idem
+
+$ ls > [txt file]  # overwrites [txt file]
+$ ls >> [txt file] # appends lines to [txt file]
+
+# Displays the total number of files in the current working directory and all of its subdirectories.
+$ find . -type f -print | wc -l
+  
+$ cd [directory] # change directory
+# notes
+  . current dir
+  .. father dir
+  / root dir
+  ~ home dir /users/[user]
+
+$ head [options] [file/s] # show first 10 lines of each [file/s]
+# options
+  -n [num] prints out the first [num] lines
+  -q omits file headers
+  -v always prints file headers
+
+$ head -vn 5 [file] | cat -n # head command sends first 5 lines and header to cat command who numerates them
+  1  ==> [file name].[file extension] <==
+     2 [first line]
+     3 [second line]
+     4 [third line]
+     5 [fourth line]
+     6 [fifth line]
+
+# std = standard, in = input, out = output, err = error
+
+$ [command1] | [command2] # pipes [cmd1] stdout into [cmd2] stdin
+
+$ [command1] |& [command2] # pipes both [cmd1] stdout and stderr into [cmd2] stdin 
+
+$ [command1] && [command2] # [cmd2] executes if [cmd1] succeeds
+
+$ [command1] || [command2] # [cmd2] executes only if [cmd1] fails
+
+$ [command1] ; [command2] # [cmd2] executes unless 'set -e' had previously been invoked
+
+$ ls [options] # lists dir contents
+# options
+  -a show hidden files and folders
+  -l long format
+  -G colorised output
+
+$ man [options] [command] # see [cmd] manual page
+# options
+  -f short description
+  -a all available intro manual pages
+
+$ mv [options] [file/dir] [path] # move/rename [file/dir] to [path]
+# options
+  -f force move
+  -i prompt confir
+
+$  ls * | sort | uniq | tail | head -n 5 | fmt
+pythonanywhere.url script_list.txt sphinx.txt strings.sh switch.sh.save
+
+cat "dummy text.txt" | pr    # formats text to be printable
+
+$ echo "Hello World" | tr 'a-z' 'A-Z' # "translate chars"
+HELLO WORLD
+
+$ echo abc | rev
+cba
+
+$ echo abcdefghij | cut -c 1-3,5-8
+abcefgh
+
+$ echo a b c d e potato tomato melon | cut -d ' ' -f1-4
+a b c d
+
+
+$ grep [options] [string] [txt file]
+# opciones -F -w -E --color -H -h -n -v -i -o -x -r -R -c -A [num] -B [num] -C [num]
+
+$ cat ./"dummy text.txt" | head -n 5| grep --color -w -H -F -C 2 ' lorem'
+(standard input)-"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+(standard input)-"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+(standard input):Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, mi vitae pharetra iaculis, lorem leo consequat ex, at mollis libero eros ac mauris. Vestibulum lacinia at nulla quis tempus. Nulla dignissim euismod risus at varius. Integer eget vulputate urna, id cursus dolor. Aliquam consectetur ante a ex consectetur sagittis. Mauris erat turpis, consequat sed elementum in, blandit sit amet dui. Nulla euismod elit vel orci elementum vulputate. Phasellus sit amet orci vitae nisl tristique hendrerit eu placerat quam. Donec aliquam consequat velit, in lacinia nibh tincidunt feugiat.
+(standard input)-
+
+$ sed 's/[search txt]/[replace txt]/[flag]'
+$ sed '/[pattern]/s/[search txt]/[replace txt]/[flag]'
+$ sed '[line range] s/[search txt]/[replace txt]/[flag]'
+$ sed -e '[sustitution1]' -e '[sustitution2]'
+# 's/-/-/-'  # sustituir
+# 'y/ao/AO/' # individual char substitution example
+# '-/-/-/g'  # global
+
+# https://geekland.eu/uso-del-comando-sed-en-linux-y-unix-con-ejemplos/
+
+
+$ [cmd] <[src file] >[result file]
+
+awk	An entire programming language designed for constructing filters. Extremely powerful.mation before overwriting files
+
+$ alias today='date +"%A, %-d %B %Y"'
+$ today
+Thursday, 19 January 2023
+
+#!!! alias dissapear when closing the terminal. to make them persistent they must be stored in ~/.bashrc file as follows
+
+$ echo alias today=\'date +\"%A, %-d %B %Y\"\' >> ~/.bashrc 
+
+# not only aliases but also functions can be stored there
+$ echo function getToday { today; } >> ~/.bashrc
+
+
+## HERE SCRIPT ## # [token] usually is _EOF_ (End Of File)
+
+$ [command] <<- [token]
+[content to be used as command's standard input]
+[token]
+
+## scripting ##
+
+$ which bash # where is bash located
+
+#!/bin/bash -x  # ~ debug mode. We can also toggle it with 'set'
+$ set -x # turn trakcing on
+$ [code to track]
+$ set +x # turn trakcing off
+
+==> [simplest script].sh <==
+#!/bin/bash
+# first line always contains '#!' followed by the result of '$ which bash' command
+echo "Hello world!"
+<==========================>
+
+$ chmod u+x [script] # force [script] execution
+$ chmod +x [script]  # make [script] executable 
+
+$ bash [script] # executes [script]
+$ ./[script] 	# executes [script]
+$ . [script]	  # sourced scripts are executed in parent shell and not in sub-shell
+$ source [script] # idem
+
+$ uptime
+ 09:22:24 up 50 min,  0 users,  load average: 0.00, 0.00, 0.00
+
+$ df # drive_space
+Filesystem     1K-blocks      Used Available Use% Mounted on
+/dev/sdc       263174212   2046256 247689800   1% /
+none             3918484        28   3918456   1% /mnt/wslg
+none             3918484         4   3918480   1% /mnt/wsl
+tools          999373820 152647016 846726804  16% /init
+none             3916052         0   3916052   0% /dev
+none             3918484         4   3918480   1% /run
+none             3918484         0   3918484   0% /run/lock
+none             3918484         0   3918484   0% /run/shm
+none             3918484         0   3918484   0% /run/user
+tmpfs            3918484         0   3918484   0% /sys/fs/cgroup
+drivers        999373820 152647016 846726804  16% /usr/lib/wsl/drivers
+lib            999373820 152647016 846726804  16% /usr/lib/wsl/lib
+none             3918484        76   3918408   1% /mnt/wslg/versions.txt
+none             3918484        76   3918408   1% /mnt/wslg/doc
+drvfs          999373820 152647016 846726804  16% /mnt/c
+
+# first 10 of each decreasing in Bytes current directory subfolders disk usage 
+$ du -s ./* | sort -nr | head
+
+Bytes   Folder
+44400   ./java
+14276   ./python
+68      ./trapezoids.ipynb
+68      ./jupyter.ipynb
+8       ./markdown.ipynb
+8       ./dummy text.txt
+4       ./vim.txt
+4       ./switch.sh.save
+4       ./markdown.png
+4       ./emacs.txt
+
+
+# permissions
+
+drwxrwxrwx # {dir | file} rwx owner rwx owner-group rwx others
+
+#{
+
+r read file or list dir
+w write file or CRUD files within dir
+x execute file or enter dir
+
+rwx rwx rwx = 111 111 111 <> 7 7 7
+rw- rw- rw- = 110 110 110 <> 6 6 6
+rwx --- --- = 111 000 000 <> 7 0 0
+
+ }#
+
+$ chmod 600 [file] # - rw- --- ---
+
+$ su	# become temporarily superuser
+$ sudo	# idem
+
+$ chown [user] [file]       # changes [file]'s ownership
+$ chgrp [user group] [file] # changes [file]'s group
+
+## JOB CONTROL ##
+
+$ ps   # list the processes running on the system
+  PID TTY          TIME CMD
+    9 pts/0    00:00:00 bash
+  275 pts/0    00:00:00 ps
+
+$ xload   # displays a graph representing system load
+$ xload & # launch xload in the background
+$ bg      # put a process in the background
+$ fg      # put a process in the foreground
+$ jobs	  # an alternate way of listing your own processes
+[1]+  Running                 xload &
+
+$ kill %1
+$ kill [process id]
+$ kill -l
+ 1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
+ 6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1
+11) SIGSEGV     12) SIGUSR2     13) SIGPIPE     14) SIGALRM     15) SIGTERM
+16) SIGSTKFLT   17) SIGCHLD     18) SIGCONT     19) SIGSTOP     20) SIGTSTP
+21) SIGTTIN     22) SIGTTOU     23) SIGURG      24) SIGXCPU     25) SIGXFSZ
+26) SIGVTALRM   27) SIGPROF     28) SIGWINCH    29) SIGIO       30) SIGPWR
+31) SIGSYS      34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3
+38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
+43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13
+48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12
+53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
+58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
+63) SIGRTMAX-1  64) SIGRTMAX
+
+$ echo $PATH | tr ':' "\n:" | tail -n 5
+/mnt/c/Users/donan/AppData/Local/GitHubDesktop/bin
+/mnt/c/Programs/Microsoft VS Code/bin
+/mnt/c/Users/donan/AppData/Roaming/npm
+/mnt/c/Program Files (x86)/Brackets/
+/snap/bin
+
+$ export PATH=$PATH:[directory]  # adds new dir to $PATH
+
+$ set > myEnvironment.sh # complete list of what is in the environment
+
+$ export PATH  # PATH content available to current shell child processes
+
+
+## AWK ##
+
+$ awk '{[action]}' # general syntaxis where [action] varies
+
+$ ls -l | head
+total 348
+-rwxrwxrwx 1 root root    39 Jan 18 10:40 00helloworld.sh
+-rwxrwxrwx 1 root root   221 Jan 19 09:19 01userin_exit.sh
+-rwxrwxrwx 1 root root   331 Jan 18 20:23 02sh_args.sh
+-rwxrwxrwx 1 root root   768 Jan 18 21:11 03integers.sh
+-rwxrwxrwx 1 root root   964 Jan 19 09:08 04bool_if.sh
+-rwxrwxrwx 1 root root   526 Jan 18 21:22 05switch.sh
+-rwxrwxrwx 1 root root   136 Jan 18 16:36 06while.sh
+-rwxrwxrwx 1 root root 12421 Jan 19 20:26 Bash.txt
+-rwxrwxrwx 1 root root  2413 Jan 18 21:51 Bash.txt~
+
+# here, $5 means the fifth column and NR>3 skips the first three rows
+$  ls -l | head | awk 'NR>3{print $5}'
+221
+331
+768
+964
+526
+136
+13051
+
+$ cat /etc/passwd | head
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+
+# -F ":" sets the column dellimitator to ':'
+# here multiple columns are printed with tabs in between
+# alternatively:
+$ cat /etc/passwd | head | awk 'BEGIN{FS=":";OFS="\t"} {print $1,$3,$5}'
+$ cat /etc/passwd | head | awk -F ":" '{print $1"\t"$3"\t"$5}'
+root    0       root
+daemon  1       daemon
+bin     2       bin
+sys     3       sys
+sync    4       sync
+games   5       games
+man     6       man
+lp      7       lp
+mail    8       mail
+news    9       news
+
+
+$ cat /etc/shells
+# /etc/shells: valid login shells
+/bin/sh
+/bin/bash
+/usr/bin/bash
+/bin/rbash
+/usr/bin/rbash
+/bin/dash
+/usr/bin/dash
+/usr/bin/tmux
+/usr/bin/screen
+
+# $NF or $(NF-0) refers to the last cloumn, $(NF-2) to the second to the end column and so on
+# /^\// RegExp: lines beginning by /
+$ awk -F "/" '/^\// {print $(NF-0)}' /etc/shells | sort | uniq
+bash
+dash
+rbash
+screen
+sh
+tmux
+
+$ df
+Filesystem     1K-blocks      Used Available Use% Mounted on
+/dev/sdc       263174212   2049576 247686480   1% /
+none             3918484        68   3918416   1% /mnt/wslg
+none             3918484         4   3918480   1% /mnt/wsl
+tools          999373820 154996116 844377704  16% /init
+none             3916052         0   3916052   0% /dev
+none             3918484         4   3918480   1% /run
+none             3918484         0   3918484   0% /run/lock
+none             3918484         0   3918484   0% /run/shm
+none             3918484         0   3918484   0% /run/user
+tmpfs            3918484         0   3918484   0% /sys/fs/cgroup
+drivers        999373820 154996116 844377704  16% /usr/lib/wsl/drivers
+lib            999373820 154996116 844377704  16% /usr/lib/wsl/lib
+none             3918484        76   3918408   1% /mnt/wslg/versions.txt
+none             3918484        76   3918408   1% /mnt/wslg/doc
+drvfs          999373820 154996116 844377704  16% /mnt/c
+
+$ df | awk '/[g-n]$/ && /^none/ {print}'
+none             3918484        68   3918416   1% /mnt/wslg
+none             3918484         4   3918480   1% /mnt/wsl
+none             3918484         4   3918480   1% /run
+none             3918484         0   3918484   0% /run/lock
+none             3918484         0   3918484   0% /run/shm
+
+$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdc        251G  2.0G  237G   1% /
+none            3.8G   68K  3.8G   1% /mnt/wslg
+none            3.8G  4.0K  3.8G   1% /mnt/wsl
+tools           954G  148G  806G  16% /init
+none            3.8G     0  3.8G   0% /dev
+none            3.8G  4.0K  3.8G   1% /run
+none            3.8G     0  3.8G   0% /run/lock
+none            3.8G     0  3.8G   0% /run/shm
+none            3.8G     0  3.8G   0% /run/user
+tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+drivers         954G  148G  806G  16% /usr/lib/wsl/drivers
+lib             954G  148G  806G  16% /usr/lib/wsl/lib
+none            3.8G   76K  3.8G   1% /mnt/wslg/versions.txt
+none            3.8G   76K  3.8G   1% /mnt/wslg/doc
+drvfs           954G  148G  806G  16% /mnt/c
+
+$ df -h | awk '{print $1"\t"$2 + $4}'
+Filesystem      0
+/dev/sdc        488
+none    7.6
+none    7.6
+tools   1760
+none    7.6
+none    7.6
+none    7.6
+none    7.6
+none    7.6
+tmpfs   7.6
+drivers 1760
+lib     1760
+none    7.6
+none    7.6
+drvfs   1760
+
+# length or length($0) reffers to the whole line whereas length($1, 2, ...) to the column 1, 2, and so on
+$ df -h | awk ' /^n/ && length($6) > 8 {print length($0)"\t"$0} '
+47      none            3.8G   68K  3.8G   1% /mnt/wslg
+47      none            3.8G     0  3.8G   0% /run/lock
+47      none            3.8G     0  3.8G   0% /run/user
+60      none            3.8G   76K  3.8G   1% /mnt/wslg/versions.txt
+51      none            3.8G   76K  3.8G   1% /mnt/wslg/doc
+
+$ ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 09:10 ?        00:00:00 /init
+root         7     1  0 09:10 ?        00:00:00 /init
+root         8     7  0 09:10 ?        00:00:00 /init
+root         9     8  0 09:10 pts/0    00:00:00 -bash
+root       533     9  0 10:21 pts/0    00:00:00 ps -ef
+
+$ ps -ef | awk '{ if($NF == "\/init") print NR"\t"$2"\t"$NF}'
+2       1       /init
+3       7       /init
+4       8       /init
+
+$ ps -ef | awk 'END {print $0}'
+root       539     9  0 10:41 pts/0    00:00:00 awk END {print $0}
+
+$ ps -aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   1804  1188 ?        Sl   09:10   0:00 /init
+root         7  0.0  0.0   1812    88 ?        Ss   09:10   0:00 /init
+root         8  0.0  0.0   1812    96 ?        S    09:10   0:00 /init
+root         9  0.0  0.0  10168  5244 pts/0    Ss   09:10   0:00 -bash
+root       544  0.0  0.0  10836  3452 pts/0    R+   11:03   0:00 ps -aux
+
+$ ps -aux | awk 'NR>2{print NR" "$0}'
+3 root         7  0.0  0.0   1812    88 ?        Ss   09:10   0:00 /init
+4 root         8  0.0  0.0   1812    96 ?        S    09:10   0:00 /init
+5 root         9  0.0  0.0  10168  5244 pts/0    Ss   09:10   0:00 -bash
+6 root       542  0.0  0.0  10836  3316 pts/0    R+   10:44   0:00 ps -aux
+7 root       543  0.0  0.0  12896  3104 pts/0    S+   10:44   0:00 awk NR>2{print NR" "$0}
+
+$ ps -aux | awk 'NR==1{print $0}' && ps -aux | awk '$NF ~ /[h,x]$/ {print $0}'
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         9  0.0  0.0  10168  5244 pts/0    Ss   09:10   0:00 -bash
+root       549  0.0  0.0  10836  3320 pts/0    R+   11:08   0:00 ps -aux
+
+$ cat /etc/shells
+# /etc/shells: valid login shells
+/bin/sh
+/bin/bash
+/usr/bin/bash
+/bin/rbash
+/usr/bin/rbash
+/bin/dash
+/usr/bin/dash
+/usr/bin/tmux
+/usr/bin/screen
+
+$ cat /etc/shells | awk 'NR>1 {print substr($0, 5)}'
+/sh
+/bash
+/bin/bash
+/rbash
+/bin/rbash
+/dash
+/bin/dash
+/bin/tmux
+/bin/screen
+
+$ ps -aux | awk 'match($0, /nano/) {print $0 "\t word: \"nano\" at " RSTART " with " RLENGTH " size"}'
+root       561  0.0  0.0   9216  4372 pts/0    T    11:57   0:00 nano 04bool_if.sh       word: "nano" at 66 with 4 size
+root       581  0.0  0.0   9096  4108 pts/0    T    12:35   0:00 nano 03integers.sh      word: "nano" at 66 with 4 size
+root      6569  0.0  0.0   8104   744 pts/0    R+   16:59   0:00 awk match($0, /nano/) {print $0 "\t word: \"nano\" at " RSTART " with " RLENGTH " size"}     word: "nano" at 81 with 4 size
+
+$ awk -v a="10" -v b="20" 'BEGIN {print a " x " b " = " a*b;}'
+10 x 20 = 200
+
+# BEGIN se ejecuta antes de procesarse ningún dato.
+# END se ejecuta después de haber sido procesados los datos. 
+
+$ awk 'BEGIN{print sqrt(400)}'
+20
+
+$ awk 'BEGIN { for(i=1; i<=10; i++) print i;}'
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+$ echo Geekland es el mejor blog, de tecnología | awk '{ gsub("G","g",$0); print $0 }'
+geekland es el mejor blog, de tecnología
+
+$  df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdc        251G  2.0G  237G   1% /
+none            3.8G   68K  3.8G   1% /mnt/wslg
+none            3.8G  4.0K  3.8G   1% /mnt/wsl
+tools           954G  148G  806G  16% /init
+none            3.8G     0  3.8G   0% /dev
+none            3.8G  4.0K  3.8G   1% /run
+none            3.8G     0  3.8G   0% /run/lock
+none            3.8G     0  3.8G   0% /run/shm
+none            3.8G     0  3.8G   0% /run/user
+tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+drivers         954G  148G  806G  16% /usr/lib/wsl/drivers
+lib             954G  148G  806G  16% /usr/lib/wsl/lib
+none            3.8G   76K  3.8G   1% /mnt/wslg/versions.txt
+none            3.8G   76K  3.8G   1% /mnt/wslg/doc
+drvfs           954G  148G  806G  16% /mnt/c
+
+$ df -h | awk '{ gsub("M","G",$2); printf "%-12s %-12s\n",$1,$2 }'
+Filesystem   Size
+/dev/sdc     251G
+none         3.8G
+none         3.8G
+tools        954G
+none         3.8G
+none         3.8G
+none         3.8G
+none         3.8G
+none         3.8G
+tmpfs        3.8G
+drivers      954G
+lib          954G
+none         3.8G
+none         3.8G
+drvfs        954G
+
+$ awk '{print}' [text file]
+
+$ awk 'BEGIN { system("pwd") }'
+/mnt/c/users/donan/OneDrive/Desktop/WD
+
+$ ssh user@host "command"
+
+$ ssh -T user@host << EOF
+Command 1...
+Command 2..
+.....
+Command N..
+EOF
+
+### LIBRARIES ###
+
+$ PATH=$PATH:~/bin
+$ cd ~
+$ mkdir -p ~/lib/bash
+# edit mylib.sh
+$ source ~/lib/bash/mylib.sh
+ 
+function doNothing () { :;}
+declare -f doNothing
+doNothing ()
+{
+    :
+}
+
+!missing: map reduce
+!missing:  anonymous func & lambdas
+!missing:  promises
+
+$ awk -F: '{ print $1}' /etc/passwd | sort # lists users
+
+$ ssh -T user@host << EOF
+Command 1...
+Command 2..
+.....
+Command N..
+EOF
+
+
+FD 0 -> Standard Input(stdin) -> Keyboard
+FD 1 -> Standard Output(Stdout) -> Display(Terminal)
+FD 2 -> Standard Error(Stderr) -> Display(Terminal)
+
+
+$ scp file host:path
+$ scp host:file path
+$ scp -r host:path/directory .
+
+ssh-keygen - creates a key pair for public key authentication
+ssh-copy-id - configures a public key as authorized on a server
+ssh-agent - agent to hold private key for single sign-on
+ssh-add - tool to add a key to the agent
+scp - file transfer client with RCP-like command interface
+sftp - file transfer client with FTP-like command interface
+sshd - OpenSSH server
+
+/etc/ssh/ssh_config/ssh_config
+~/ssh/config/ssh_config
+
+https://www.ssh.com/academy/ssh/config
+
+https://www.fastsitephp.com/en/documents/file-encryption-bash
+
+
+
+
+ ssh, mkfs, ifconfig, nmap, chown and chmod
+
+https://www.amazon.com/Linux-Command-Line-2nd-Introduction/dp/1593279523?crid=1CTPZ8FMMDTGR&dchild=1&keywords=the+linux+command+line,+2nd+edition+a+complete+introduction&qid=1635309348&sprefix=the+linux+command,aps,248&sr=8-1&linkCode=sl1&tag=quant0f-20&linkId=40bb5d1d1c0273a09cf0f98c2ba67008&language=en_US&ref_=as_li_ss_tl

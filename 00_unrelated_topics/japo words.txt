@@ -1,0 +1,156 @@
+https://www.fluentin3months.com/core-japanese-words/
+これ / この (Kore / Kono) – “This” or “This _ (thing/person)”
+それ / その (Sore / Sono) – “That / It” or “That _ (thing/person)”
+あれ / あの (Are / Ano) – “That over there” or “That _ (thing/person) over there”
+私 / 僕 (Watashi / Boku) – “I” (私 is gender neutral, while 僕 is masculine.)
+彼 (Kare) – “He”
+彼女 (Kanojo) – “She”
+私たち (Watashitachi) – “We”
+彼ら (Karera) – “They”
+年 (Toshi or Nen) – “Year”
+月 (Getsu or Tsuki) – “Month” and “Moon”
+日 (Nichi or Hi) – “Day” and “Sun”
+週 (Shuu) – “Week”
+今日 (Kyou) – “Today”
+明日 (Ashita) – “Tomorrow”
+昨日 (Kinou) – “Yesterday”
+時間 (Jikan) – “Time” (As in, a time frame.)
+分 (Fun or Bun) – “Minute”
+時 (Ji or Toki) – “Hour” or “Time”
+こと (Koto) – “About (this thing)”
+日本 (Nihon) – “Japan”
+ため (Tame) – “For” or “In regards to”
+人 (Hito or Nin) – “Person”
+物 (Mono) – “Thing”
+国 (Kuni or Koku) – “Country”
+大学 (Daigaku) – “College”
+今 (Ima) – “Now”
+前 (Mae) – “Before”
+後 (Ato) – “After”
+駅 (Eki) – “(Train) Station”
+線 (Sen) – “Line”
+電車 (Densha) – “Train”
+車 (Kuruma) – “Car”
+部屋 (Heya) – “Room”
+名前 (Namae) – “Name”
+所 / 場所 (Tokoro / Basho) – “Place”
+地下鉄 (Chikatetsu) – “Subway”
+中 (Naka or Chuu) – “Middle,” “Inside,” or “During”
+外 (Soto or Gai) – “Outside”
+学校 (Gakkou) – “School”
+語 (Go) – “Language” (Combine it with other words like: 言語 (gengo, “language”), 単語 (tango, “words”), 日本語 (Nihongo, “Japanese”), 英語 (Eigo, “English”), スペイン語 (Supeingo, “Spanish”).)
+水 (Mizu) – “Water”
+映画 (Eiga) – “Movie”
+テレビ (Terebi) – “TV”
+家族 (Kazoku) – “Family”
+町 (Machi) – “Town”
+他の (Hoka no) – “Other”
+出身 (Shusshin) – “Hometown”
+トイレ / お手洗い (Toire / Otearai) – “Bathroom”
+家 (Uchi or Ie) – “Home” or “House”
+店 (Mise or Ya) – “Shop”
+する (Suru) – “To do”
+です (Desu) – “To be” or “it is”
+なる (Naru) – “To become”
+ある (Aru) – “There is” for inanimate objects and plants.
+いる (Iru) – “There is” for living things, like humans and animals.
+言う (Iu) – “To say”
+行く (Iku) – “To go”
+出来る (Dekiru) – “To be able to do” or “can do”
+見る (Miru) – “To see”
+送る (Okuru) – “To send”
+持つ (Motsu) – “To have” or “to hold”
+待つ (Matsu) – “To wait”
+会う (Au) – “To meet”
+呼ぶ (Yobu) – “To call”
+置く (Oku) – “To put”
+受ける (Ukeru) – “To receive”
+作る (Tsukuru) – “To make”
+着く (Tsuku) – “To arrive”
+使う (Tsukau) – “To use”
+学ぶ (Manabu) – “To learn”
+食べる (Taberu) – “To eat”
+飲む (Nomu) – “To drink”
+帰る (Kaeru) – “To return home”
+多い (Ooi) – “Many”
+たくさん (Takusan) – “Lots of”
+少し (Sukoshi) – “Few”
+遠い (Tooi) – “Far”
+近い (Chikai) – “Near”
+小さい (Chiisai) – “Small”
+大きい (Ookii) – “Big”
+良い (Yoi) – “Good”
+悪い (Warui) – “Bad”
+きれいな (Kirei na) – “Clean” and “Pretty”
+醜い (Minikui) – “Ugly”
+難しい (Muzukashii) – “Difficult”
+簡単な (Kantan na) – “Easy”
+うまい (Umai) – “Nice”
+美味しい (Oishii) – “Delicious”
+まずい (Mazui) – “Disgusting”
+大丈夫 (Daijoubu) – “All right”
+すごい (Sugoi) – “Amazing”
+楽しい (Tanoshii) – “Enjoyable” or “Pleasant”
+とても (Totemo) – “Very”
+しかし (Shikashi) – “However”
+また (Mata) – “Also”
+その後 (Sono ato) – “After that”
+その時 (Sono toki) – “At that time”
+場合は (Baai wa) – “If you” or “If this happens”
+例えば (Tatoeba) – “For example”
+それから (Sorekara) – “Then”
+だから (Dakara) – “So”
+
+
+
+		ぁ	あ	ぃ	い	ぅ	う	ぇ	え	ぉ	お	か	が	き	ぎ	く
+U+305x	ぐ	け	げ	こ	ご	さ	ざ	し	じ	す	ず	せ	ぜ	そ	ぞ	た
+U+306x	だ	ち	ぢ	っ	つ	づ	て	で	と	ど	な	に	ぬ	ね	の	は
+U+307x	ば	ぱ	ひ	び	ぴ	ふ	ぶ	ぷ	へ	べ	ぺ	ほ	ぼ	ぽ	ま	み
+U+308x	む	め	も	ゃ	や	ゅ	ゆ	ょ	よ	ら	り	る	れ	ろ	ゎ	わ
+U+309x	ゐ	ゑ	を	ん	ゔ	ゕ	ゖ
+
+
+U+30Ax	゠	ァ	ア	ィ	イ	ゥ	ウ	ェ	エ	ォ	オ	カ	ガ	キ	ギ	ク
+U+30Bx	グ	ケ	ゲ	コ	ゴ	サ	ザ	シ	ジ	ス	ズ	セ	ゼ	ソ	ゾ	タ
+U+30Cx	ダ	チ	ヂ	ッ	ツ	ヅ	テ	デ	ト	ド	ナ	ニ	ヌ	ネ	ノ	ハ
+U+30Dx	バ	パ	ヒ	ビ	ピ	フ	ブ	プ	ヘ	ベ	ペ	ホ	ボ	ポ	マ	ミ
+U+30Ex	ム	メ	モ	ャ	ヤ	ュ	ユ	ョ	ヨ	ラ	リ	ル	レ	ロ	ヮ	ワ
+U+30Fx	ヰ	ヱ	ヲ	ン	ヴ	ヵ	ヶ	ヷ	ヸ	ヹ	ヺ	
+
+
+	一	丨	丶	丿	乙	乚	亅	2	二	亠	人	亻	𠆢	儿
+入	八	冂	冖	冫	几	⺇	凵	刀	刂	力	勹	匕	匚	匸
+十	卜	卩	厂	厶	又	3	口	囗	土	士	夂	⼡	夊	夕
+大	女	子	宀	寸	小	⺌	尢	尸	屮	山	巛	川	工	己
+巳	巾	干	幺	广	廴	廾	弋	弓	彐	⺕	彑	彡	彳	忄
+扌	氵	⺦	犭	艹	⻏	阝	4	心	㣺	戈	戶	戸	手	支
+⺙	攴	攵	文	斗	斤	方	无	旡	日	曰	月	木	欠	止
+歹	殳	毋	毌	比	毛	氏	气	水	火	灬	爪	爫	父	爻
+爿	片	牙	牛	牜	犬	礻	罓	耂	⺿	辶	⻍	5	母	氺
+玄	玉	瓜	瓦	甘	生	用	田	疋	疒	癶	白	皮	皿	目
+矛	矢	石	示	禸	禾	穴	立	罒	衤	6	竹	⺮	米	糸
+糹	缶	网	羊	⺷	⺶	羽	老	而	耒	耳	聿	肉	自	至
+臼	舌	舛	舟	艮	色	艸	虍	虫	血	行	衣	西	襾	覀
+7	臣	𦥑	見	角	言	谷	豆	豕	豸	貝	赤	走	足	身
+車	辛	辰	辵	邑	酉	釆	里	镸	麦	8	金	長	門	阜
+隶	隹	雨	⻗	靑	青	非	飠	鼡	斉	9	面	革	韭	音
+頁	風	飛	食	⻞	首	香	10	韋	馬	骨	高	髟	鬥	鬯
+鬲	鬼	竜	11	魚	鳥	鹵	鹿	麥	麻	黄	黒	亀	12	黃
+黍	黑	黹	歯	13	黽	鼎	鼓	鼠	14	鼻	齊	15	齒	16
+龍	龜	17	龠
+
+U+31Cx	㇀	㇁	㇂	㇃	㇄	㇅	㇆	㇇	㇈	㇉	㇊	㇋	㇌	㇍	㇎	㇏
+U+31Dx	㇐	㇑	㇒	㇓	㇔	㇕	㇖	㇗	㇘	㇙	㇚	㇛	㇜	㇝	㇞	㇟
+U+31Ex	㇠	㇡	㇢	㇣
+
+
+
+「　」『　』〝　〟⟨　⟩〜：！？♪々 
+
+
+IPA	Hepburn	Nihon	Kunrei	JSL	Waapuro
+
+
+
+

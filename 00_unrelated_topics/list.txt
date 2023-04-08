@@ -1,0 +1,58 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 7447-32EF
+
+ Directory of C:\Program Files
+
+01/02/2023  11:41    <DIR>          .
+26/10/2021  16:54    <DIR>          Adobe
+26/10/2021  19:00    <DIR>          AMD
+19/09/2022  16:44    <DIR>          Applied Acoustics Systems
+26/10/2021  18:45    <DIR>          ASUS
+11/03/2022  00:28    <DIR>          AutoFirma
+31/07/2022  07:46    <DIR>          Bonjour
+15/01/2023  21:43    <DIR>          Common Files
+19/09/2022  16:59    <DIR>          DAWarGames
+27/10/2021  16:50    <DIR>          Docker
+15/01/2023  14:55    <DIR>          Emacs
+01/02/2023  11:41    <DIR>          Firefox Developer Edition
+29/01/2023  10:17    <DIR>          GitHub CLI
+07/10/2021  18:35    <DIR>          Google
+07/10/2022  19:34    <DIR>          HP
+13/01/2023  19:42    <DIR>          Hyper-V
+07/10/2022  19:14    <DIR>          Internet Explorer
+13/01/2023  16:17    <DIR>          iTunes
+15/01/2023  21:43    <DIR>          Java
+16/01/2023  18:52    <DIR>          JetBrains
+19/09/2022  17:00    <DIR>          Klevgrand
+10/10/2021  11:43    <DIR>          Linux Containers
+19/09/2022  17:13    <DIR>          Melodics
+07/10/2022  20:13    <DIR>          Microsoft
+13/01/2023  16:16    <DIR>          Microsoft Office
+07/10/2021  18:07    <DIR>          Microsoft Office 15
+28/01/2023  19:14    <DIR>          Microsoft OneDrive
+28/01/2023  15:16    <DIR>          Microsoft Update Health Tools
+07/05/2022  06:24    <DIR>          ModifiableWindowsApps
+07/10/2022  19:21    <DIR>          MSBuild
+19/09/2022  15:33    <DIR>          NovationUsbMidi
+29/01/2022  18:37    <DIR>          NVIDIA Corporation
+19/09/2022  17:44    <DIR>          ocenaudio
+15/01/2023  21:19    <DIR>          PowerShell
+08/10/2022  11:39    <DIR>          REAPER (x64)
+07/10/2022  19:21    <DIR>          Reference Assemblies
+19/09/2022  17:20    <DIR>          Softube
+19/09/2022  17:10    <DIR>          Softube Central
+22/11/2022  13:12    <DIR>          Spyder
+19/09/2022  15:54    <DIR>          Steinberg
+07/10/2022  20:18    <DIR>          Windows Defender
+13/01/2023  19:42    <DIR>          Windows Defender Advanced Threat Protection
+07/10/2022  19:25    <DIR>          Windows Identity Foundation
+13/01/2023  19:42    <DIR>          Windows Mail
+15/10/2022  13:26    <DIR>          Windows Media Player
+07/10/2022  19:25    <DIR>          Windows MultiPoint Server
+07/05/2022  11:08    <DIR>          Windows NT
+07/10/2022  19:14    <DIR>          Windows Photo Viewer
+07/05/2022  06:42    <DIR>          WindowsPowerShell
+07/10/2022  21:56    <DIR>          WinRAR
+19/09/2022  16:35    <DIR>          XLN Audio
+               0 File(s)              0 bytes
+              51 Dir(s)  863,617,662,976 bytes free

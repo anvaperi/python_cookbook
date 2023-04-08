@@ -1,0 +1,22 @@
+sudo apt-get install expect
+
+
+
+
+# ./01userin_exit.sh
+Enter 0 or a digit between 4 and 6:					5
+Y/N? 										Y
+Y
+Press any key: 								t
+t
+Bravo!
+Hurry up and type something! > Sorry, you are too slow!	x
+
+
+stdin 0
+stdout 1
+stderr 2
+
+cmdA | cmdB # stdoutA -> stdinB 
+cmdA |& cmdB # stdoutA & stderrA -> stdinB 
+cmdA  2>&1 | cmbB # idem

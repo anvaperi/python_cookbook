@@ -1,0 +1,41 @@
+https://docs.github.com/en/get-started/quickstart/hello-world
+https://cli.github.com/manual/
+https://docs.github.com/en/github-cli/github-cli/quickstart
+
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+Generating a new SSH key and adding it to the ssh-agent
+
+Git Bash $ ssh-keygen -t ed25519 -C "your_email@example.com"
+{
+  file name:  default:= id_ed25519
+  passphrase: default:=			# empty
+}
+
+$ git clone [https format]
+
+________________
+https://medium.com/swlh/how-to-use-github-cli-the-new-github-command-line-interface-2016b84f29c0
+
+gh auth login
+{
+  account: GitHub.com
+  protocol: SSH
+  public key: id_ed25519.pub
+  SSH key title: cle
+  CLI suthentication: via token # https://github.com/settings/tokens
+  token purpose: GitHub learning
+  token scopes: all
+  token: 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
+}
+
+$ gh repo create --public testrepo
+
+
+$ git clone 
+...
+$ git push
+
+:D
+
+new token: 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

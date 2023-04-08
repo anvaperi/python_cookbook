@@ -1,0 +1,33 @@
+Visual Studio Code alternatives
+  emacs
+  Atom
+  VSCodium
+  Eclipse
+  Kate
+  Geany
+  PyDev
+______________________
+
+C^k C^o open folder
+C^E explorer
+C^F search
+C^G sourcecontrolmanagement
+C^D run&debug
+C^X extensions
+C^P cmd Palette
+C^p open file
+C^M^ UP^/DOWN^ add cursor above/below
+C^U output
+C^Y debug console
+C^M problems
+C^' terminal (broken)
+C^@ create new terminal
+C^n new file
+C^s save
+F5^ debug
+C^- C^= zooom out/in
+C^k C^t color theme
+M^F format doc
+C^click add new cursor
+C^, settings
+M^ UP^/DOWN^ swaps lines

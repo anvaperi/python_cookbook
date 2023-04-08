@@ -1,0 +1,31 @@
+Nano alternatives
+  Notepad++
+  Vim
+_________________
+
+In Ubuntu for windows C:\ becomes /mnt/c/
+
+
+C^g help
+C^x exit
+C^o save
+C^r read file
+C^w find
+C^\ replace ???
+C^k cut
+C^u paste
+C^j justify
+C^c show current position
+C^_ goto line
+C^- zoom out
+M^u undo
+M^e redo
+M^a select
+M^6 copy
+
+C^t spell (broken)
+
+
+mirrosdlkfj
+
+the echo in the dkjmirror

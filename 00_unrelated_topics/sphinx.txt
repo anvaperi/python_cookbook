@@ -1,0 +1,10 @@
+sphinx alternatives 
+ Wiki.js
+ GitBook, Read The Docs, MkDocs and Docsify.js
+Doxygen
+Retype
+__________________________
+
+https://sphinx-themes.org/
+
+https://www.youtube.com/watch?v=BWIrhgCAae0

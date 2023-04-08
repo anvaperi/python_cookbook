@@ -1,0 +1,111 @@
+Git alternatives
+
+Azure DevOps Server
+Helix Core
+AWS CodeCommit
+Subversion
+Rational ClearCase
+Plastic SCM
+Mercurial
+Micro Focus AccuRev
+____________________________
+https://www.atlassian.com/git/tutorials/cherry-pick#:~:text=git%20cherry%2Dpick%20is%20a,be%20useful%20for%20undoing%20changes.
+
+$ git gui
+$ git init
+Initialized empty Git repository in C:/.../dummy_project/.git/
+
+~/.../dummy_project (master)
+$ git clone https://github.com/libgit2/libgit2
+
+$ ssh-keygen -t rsa -b 4096 -C "donantonio5314@gmail.com"
+$ ssh-keygen -e -f ssh_rsa.pub -m ssh2 > ssh2_key.pem
+
+
+$ vim ~/.gitconfig
+
+$ git [cmd]
+--help
+config --global user.name "[name]"
+config --global user.email "[you@domain.xxx]"
+config --global alias.[alias] [cmd]
+config --global --system core.editor "vim"
+config --global --edit
+
+status -s
+log -p # shows full diff for each commit
+log --stat # include altered files and lines
+log --author="[author]"
+log --grep="[commit name substring]"
+log --oneline
+log -[number] # show last [number] commits
+log [SHA-0]..[SHA-F]
+log -- [file]
+log --graph --decorate
+show [HEAD]
+
+reflog --all --relative-date
+
+clean -n # shows files that would be removed from WD
+clean -f # removes files from WD
+
+.gitignore
+  /[files]
+  [folders]/
+
+I: Ignored
+WD: Working directory
+SA: Staging area
+LR: Local Repository
+RR: Remote Repository
+
+add [file/*/./-A]	 {WD -> SA}
+rm --cached [file] {SA -> WD}
+reset [file]	 {SA -> WD}
+diff # {WD vs. SA} 
+
+commit -m "title" [-m "description"] {SA -> LR}
+reset --soft [SHA] {LR -> SA} # deletes commit!!
+revert HEAD # new commit undoing last one
+commit --amend {undo last commit and create a new commit}
+diff --cached {SA vs. LR}
+
+commit -am "title" [-m "description"] {WD -> LR}
+reset [--mixed] [SHA] {LR -> WD} # deletes commit!!
+diff HEAD {WD vs. LR}
+
+reset --hard [SHA] {LR -> X}  # Deletes commit and overwrites WD !!!
+
+remote add [remote repo] [url] # new connexion to RR
+fetch [RR] [branch] # 
+fetch [RR] # all branches
+push [RR] {LR -> RR}
+push [RR] --all # branches
+push [RR] --tags # ?? no sé qué hace
+
+
+git push --all origin
+
+
+push [RR] --force  #!!
+pull [RR] [branch] {RR -> LR} # clone & merge
+pull --rebase [RR] # rebases remote current branch copy into local branch copy 
+
+# Branching #
+branch # lists branches
+branch -D [branch to delete]
+branch [new branch] # creates [new branch]
+push -u [RR] [branch]
+
+branch --set-upstream-to=origin/master master
+checkout -b [new branch] # creates and moves to [new branch]
+checkout [existing branch] # moves to [existing branch]
+diff [another branch]
+merge [another branch] # merges [another branch] into current one
+merge --abort
+rebase -i [base] # interactively 
+cherry-pick [SHA of different branch]
+HEAD^
+
+
+https://git-scm.com/docs/git-stash

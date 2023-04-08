@@ -1,0 +1,8 @@
+Trunk-based development alternatives
+Git Flow
+github flow
+gitlab flow
+one flow
+__________________________
+
+https://trunkbaseddevelopment.com/alternative-branching-models/

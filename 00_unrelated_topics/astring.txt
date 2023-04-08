@@ -1,0 +1,60 @@
+
+   TypeName: System.String
+
+Name                 MemberType            Definition
+----                 ----------            ----------
+Clone                Method                System.Object Clone(), System.Object ICloneable.Clone()
+CompareTo            Method                int CompareTo(System.Object value), int CompareTo(string strB), int IComparable.Compare…
+Contains             Method                bool Contains(string value), bool Contains(string value, System.StringComparison compar…
+CopyTo               Method                void CopyTo(int sourceIndex, char[] destination, int destinationIndex, int count), void…
+EndsWith             Method                bool EndsWith(string value), bool EndsWith(string value, System.StringComparison compar…
+EnumerateRunes       Method                System.Text.StringRuneEnumerator EnumerateRunes()
+Equals               Method                bool Equals(System.Object obj), bool Equals(string value), bool Equals(string value, Sy…
+GetEnumerator        Method                System.CharEnumerator GetEnumerator(), System.Collections.IEnumerator IEnumerable.GetEn…
+GetHashCode          Method                int GetHashCode(), int GetHashCode(System.StringComparison comparisonType)
+GetPinnableReference Method                System.Char&, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=…
+GetType              Method                type GetType()
+GetTypeCode          Method                System.TypeCode GetTypeCode(), System.TypeCode IConvertible.GetTypeCode()
+IndexOf              Method                int IndexOf(char value), int IndexOf(char value, int startIndex), int IndexOf(char valu…
+IndexOfAny           Method                int IndexOfAny(char[] anyOf), int IndexOfAny(char[] anyOf, int startIndex), int IndexOf…
+Insert               Method                string Insert(int startIndex, string value)
+IsNormalized         Method                bool IsNormalized(), bool IsNormalized(System.Text.NormalizationForm normalizationForm)
+LastIndexOf          Method                int LastIndexOf(char value), int LastIndexOf(char value, int startIndex), int LastIndex…
+LastIndexOfAny       Method                int LastIndexOfAny(char[] anyOf), int LastIndexOfAny(char[] anyOf, int startIndex), int…
+Normalize            Method                string Normalize(), string Normalize(System.Text.NormalizationForm normalizationForm)
+PadLeft              Method                string PadLeft(int totalWidth), string PadLeft(int totalWidth, char paddingChar)
+PadRight             Method                string PadRight(int totalWidth), string PadRight(int totalWidth, char paddingChar)
+Remove               Method                string Remove(int startIndex, int count), string Remove(int startIndex)
+Replace              Method                string Replace(string oldValue, string newValue, bool ignoreCase, cultureinfo culture),…
+ReplaceLineEndings   Method                string ReplaceLineEndings(), string ReplaceLineEndings(string replacementText)
+Split                Method                string[] Split(char separator, System.StringSplitOptions options = System.StringSplitOp…
+StartsWith           Method                bool StartsWith(string value), bool StartsWith(string value, System.StringComparison co…
+Substring            Method                string Substring(int startIndex), string Substring(int startIndex, int length)
+ToBoolean            Method                bool IConvertible.ToBoolean(System.IFormatProvider provider)
+ToByte               Method                byte IConvertible.ToByte(System.IFormatProvider provider)
+ToChar               Method                char IConvertible.ToChar(System.IFormatProvider provider)
+ToCharArray          Method                char[] ToCharArray(), char[] ToCharArray(int startIndex, int length)
+ToDateTime           Method                datetime IConvertible.ToDateTime(System.IFormatProvider provider)
+ToDecimal            Method                decimal IConvertible.ToDecimal(System.IFormatProvider provider)
+ToDouble             Method                double IConvertible.ToDouble(System.IFormatProvider provider)
+ToInt16              Method                short IConvertible.ToInt16(System.IFormatProvider provider)
+ToInt32              Method                int IConvertible.ToInt32(System.IFormatProvider provider)
+ToInt64              Method                long IConvertible.ToInt64(System.IFormatProvider provider)
+ToLower              Method                string ToLower(), string ToLower(cultureinfo culture)
+ToLowerInvariant     Method                string ToLowerInvariant()
+ToSByte              Method                sbyte IConvertible.ToSByte(System.IFormatProvider provider)
+ToSingle             Method                float IConvertible.ToSingle(System.IFormatProvider provider)
+ToString             Method                string ToString(), string ToString(System.IFormatProvider provider), string IConvertibl…
+ToType               Method                System.Object IConvertible.ToType(type conversionType, System.IFormatProvider provider)
+ToUInt16             Method                ushort IConvertible.ToUInt16(System.IFormatProvider provider)
+ToUInt32             Method                uint IConvertible.ToUInt32(System.IFormatProvider provider)
+ToUInt64             Method                ulong IConvertible.ToUInt64(System.IFormatProvider provider)
+ToUpper              Method                string ToUpper(), string ToUpper(cultureinfo culture)
+ToUpperInvariant     Method                string ToUpperInvariant()
+Trim                 Method                string Trim(), string Trim(char trimChar), string Trim(Params char[] trimChars)
+TrimEnd              Method                string TrimEnd(), string TrimEnd(char trimChar), string TrimEnd(Params char[] trimChars)
+TrimStart            Method                string TrimStart(), string TrimStart(char trimChar), string TrimStart(Params char[] tri…
+TryCopyTo            Method                bool TryCopyTo(System.Span[char] destination)
+Chars                ParameterizedProperty char Chars(int index) {get;}
+Length               Property              int Length {get;}
+

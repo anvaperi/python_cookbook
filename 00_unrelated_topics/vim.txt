@@ -1,0 +1,97 @@
+Vim alternatives
+  Notepad++
+  Nano
+_________________
+MODE
+: :last line mode
+ESC^: exit insert mode
+ia: insert mode
+IA: insert mode at the beginning/end of the line
+Oo: open new line above/below
+s: xi
+C: Di
+c mov: d mov i 
+vV: select text/line
+t[char]: select until char in the same line
+vt[char]: visually mark until char
+dt[char]: delete until char
+C^v: select columns
+
+FOLDS: zf#j creates a fold from the cursor down # lines.
+WINDOW: zt zz zb: moves window so cursor stays at the top/middle/bottom
+
+REPEAT: . :repeat last action
+
+MOTION
+hjkl: left down up right
+HML: top/middle/bottom of the page/screen
+eEwBb: move to word forward/backward
+W: move to next space
+(){}: move backward/forward one senctence/paragraph
+C^i C^o: goto previous nav point/come back
+:[number] : goto line [number]
+^0$: goto line beginning/end
+gg G: goto file beggining/end
+'.: goto last edit'
+%: jump to matching () [] {} pair
+m[char]: flags current location
+'[char]: goto char flag
+'':goback
+nN: goto next/previous instance of string
+;, : goto next/previous instance of jumped char
+*: search other instances of current word
+/?[searchtxt]: search forwards/backwards
+Ff[char]: find backwards/forward in current line
+vFf[char]:
+
+REPLACE: :%s/[searchtxt]/[replacementtxt]/gc 
+
+EDIT
+J: appends next line
+>> <<: indent outdent
+u C^r: undo redo
+U: undo within the last edited line
+x: cut char (supr)
+X: cut prev char (del)
+r: replace char
+R: overwrite
+diw: cut word
+ciw: diwi
+d mov: cut in mov dir
+D: cuts till the end of the line
+dd: cut line
+ddp: move down current line
+pP: paste
+y: copy
+yy Y: copies whole line
+C^v jj I TAB^ ESC^: tabulates three lines
+"[char]diw: cut current word to [char] register
+"[char]p: paste from register [char]
+
+SAVE
+:w ([filename])
+:q : quit
+:q! : force quit
+ZZ :save&quit
+:saveas ~/some/path/
+
+MACROS 
+q[char]: starts recording until q is pressed again
+@[char]: executes the macro 
+
+VERBS: d c y v
+MODIFIERS: i (inside) a (around) 1 7 12 t (to) f (goto find) /
+NOUNS
+  w: word
+  s: sentence
+  ): sentence (another way of doing it)
+  p: paragraph
+  }: paragraph (another way of doing it)
+  t: tag (think HTML/XML)
+  b: block (think programming)
+
+d2w: delete two words
+ci): change inside sentence 
+yi}: yank inside paragraph
+ct<: change to open bracket
+diw daw: delete inside/around word

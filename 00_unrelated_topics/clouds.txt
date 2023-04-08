@@ -1,0 +1,62 @@
+AWS
+Azure
+Google Cloud
+Oracle Cloud
+Salesforce
+
+
+Microsoft Azure
+Google Cloud Platform
+IBM Cloud
+Oracle Cloud Infrastructure (Gen 2)
+VMware Cloud on AWS
+Alibaba Cloud
+Tencent Cloud
+vCloud Air powered by OVH
+_____________________________________
+https://www.ssh.com/academy/cloud/iaas
+
+Modern hypervisors in the PC world include VMware ESX, VMware Player, Xen, Citrix XenServer, Microsoft Hyper-V, VirtualBox, and QEMU. VMWare Player, VirtualBox, and QEMU are application-layer hypervisors (essentially like normal programs), though they rely on some specialized operating system support for virtualization. Linux KVM and FreeBSD's bhyve are kernel modules that effectively convert a normal operating system into a hypervisor.
+
+Virtualization Software:
+
+VMware ESX and VMware Player
+Microsoft Hyper-V
+VirtualBox
+Citrix XenServer
+QEMU
+Docker
+
+A common key exchange mechanism in security protocols is the Diffie-Hellman key exchange.
+
+Common symmetric ciphers are for example:
+
+AES  Advanced Encryption Standard 
+3DES
+Blowfish
+
+Classical PKC Public Key Cryptographic (PKC) 
+public key encryption, digital signatures, and key exchange to enable scalability and usability by removing need for prior key agreement before communications. 
+
+RSA (Rivest-Shamir-Adleman) cryptosystem for signatures and encryption
+Elliptic Curve (ECDH, ECDSA) cryptosystems for key exchange and signatures
+Diffie-Hellman (DH) key exchange
+
+
+For the Quantum Threat to become real, it would need a sufficiently large QC with number of good noiseless cubits relatively close to double the public key size in bits (n) and the ability to implement a circuit with 64*n^3*lg(n) gates. Such computer is called a Cryptographically Relevant Quantum Computer (CRQC). [3]
+
+Grover’s algorithm - Lev Grover described an algorithm allowing a QC to perform a brute force key search using quadratically fewer steps than would be required classically (Grover’s algorithm)
+Shor’s algorithm - Peter Shor showed that QC can efficiently solve integer factorization and and discrete logarithm problems used on existing public key crypto systems, thereby rendering these systems impotent (Shor’s algorithm).
+
+
+
+large-scale mathematical factorization algorithms responsible for generating keys are highly vulnerable. Such algorithms — like the Rivest-Shamir-Adleman (RSA), Diffie-Hellman, and Elliptic Curve PKC algorithms — are not considered “quantum-
+safe”, even with keys of almost 1,000 decimal digits in length
+
+
+nce an algorithm becomes vulnerable, the National Institute of Standards and Technology (NIST), the National Cyber Security Centre (NCSC), and the European Telecommunications Standards Institute (ETSI) will flag it
+
+encryption algorithms
+  OpenPGP
+  ssh-keygen: RSA, DSA, ECDSA, and ED25519.
+  ZIP with AES compresses and encrypts files using the substitution permutation network (SPN) algorithm

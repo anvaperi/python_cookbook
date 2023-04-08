@@ -1,0 +1,19 @@
+pythonanywhere
+anvaperi.pythonanywhere.com
+/home/anvaperi/mysite/flask_app.py
+
+Django, web2py, Bottle or Flask
+Tornado does not support WSGI
+
+Python Web Server Gateway Interface v1.0.1
+
+WSGI is a specification of a generic API for mapping between an underlying web server and a Python web application. WSGI itself is described by Python PEP 3333:
+
+http://www.python.org/dev/peps/pep-3333/
+
+guia a retomar tras aprender Git
+https://blog.pythonanywhere.com/121/
+
+https://realpython.com/tutorials/projects/
+https://realpython.com/tic-tac-toe-ai-python/
+https://www.guru99.com/python-projects-for-beginners.html

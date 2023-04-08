@@ -1,0 +1,43 @@
+hand=("banana00" "banana01" "banana02" "banana03")
+
+for finger in ${hand[@]}; do 
+  ssh pi@finger.local & 
+shutdown.sh &
+done
+
+
+
+user=rho
+hostname=raspberry
+
+ssh 
+
+
+
+
+
+
+C:\Users\donan\.ssh>ssh rho@raspberry00.local
+rho@raspberry00.local's password:
+Linux raspberry00 5.15.84-v8+ #1613 SMP PREEMPT Thu Jan 5 12:03:08 GMT 2023 aarch64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Wed Feb  8 18:27:17 2023 from fe80::e531:9e6e:bf1d:7a44%wlan0
+rho@raspberry00:~ $ sudo shutdown now
+Connection to raspberry00.local closed by remote host.
+Connection to raspberry00.local closed.
+
+C:\Users\donan\.ssh>
+
+
+
+
+>ssh rho@raspberry00.local
+rho@raspberry00.local's password:
+rho@raspberry00:~ $ sudo shutdown now
+C:\Users\donan\.ssh>

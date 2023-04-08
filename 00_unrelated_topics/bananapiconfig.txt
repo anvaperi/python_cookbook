@@ -1,0 +1,93 @@
+Livebox router pswd: N6xSFrF6T2St
+
+TP-Link Router {
+  default settings {
+    SSID: 		TP-Link_974D
+    SSID: 		TP-Link_974D_5G
+    wireless pswd:12650453
+    MAC:		00319278974D
+  }
+
+  Archer C6 pswd:	.&%}XGJ2Z7zw
+  // IMPOSIBLE USAR IP ESTÁTICA!!!
+
+  Wireless {
+    SSID:  		TP-Link_974D => BananaHand1234
+    SSID.hidden:	FALSE => TRUE
+    Password: 	12650453 => .&%}XGJ2Z7zw
+  }
+}
+
+
+
+bananapis set up:
+
+GUI-init-menu > Preferences > {
+  Keyboard and Mouse > Keyboard > Keyboard Layout > English (UK) > OK
+  Raspberry Pi Configuration > {
+    System > {
+      Password: Change Password... > raspberry => paratikurorobenzen
+      Hostname: bpi-iot-ros-ai => [new hostname]
+      // Boot: To CLI
+      Auto loging: Loging as user 'pi' = FALSE
+    } 
+    Interfaces > SSH: Enable
+} 
+
+Terminal > {
+  sudo apt update
+  sudo apt install vim
+  sudo service dhcpcd status  # check dhcpcd is active
+  # sudo service dhcpcd start	    # if dhcpcd is not active
+  # sudo systemctl enable dhcpcd
+  ifconfig
+  sudo vim /etc/dhcpcd.conf
+  ## edit ##
+    interface eth0
+    static ip_address=192.168.1.23/24 => 192.168.0.129/24
+    static routers=192.168.1.1 => 192.168.0.1
+    static domain_name_servers=192.168.1.1 => 192.168.0.1
+  ## save ##
+  sudo reboot
+  ping [hostname].local
+  sudo shutdown now
+}	
+
+pa
+
+
+________________
+ping [hostname].local
+ssh [user]@[hostname].local
+________________
+
+hostname  	  banana00            banana01            banana02            banana03            raspberry00
+User 		  pi                  pi                  pi                  pi                  rho
+Password 	  paratikurorobenzen  paratikurorobenzen  paratikurorobenzen  paratikurorobenzen  paratikurorobenzen
+ethIP		  192.168.0.189/24    192.168.0.198/24    192.168.0.179/24    192.168.0.129/24    192.168.1.23/24
+P. de enlace  192.168.0.1         192.168.0.1         192.168.0.1         192.168.0.1         192.168.1.1
+
+
+
+enable ssh via $ sudo raspi-config
+
+
+
+How to SSH Into a Raspberry Pi for Remote Access
+https://www.makeuseof.com/how-to-ssh-into-raspberry-pi-remote/#:~:text=SSH%20Into%20Raspberry%20Pi%20From%20Windows&text=In%20the%20PuTTY%20dialog%2C%20select,the%20connection%20details%20in%20PuTTY.
+
+How to set a Raspberry Pi with a static ip address?
+https://www.ionos.com/digitalguide/server/configuration/provide-raspberry-pi-with-a-static-ip-address/#:~:text=To%20assign%20an%20IP%20address,255.0).
+
+Install and Use Vim on Raspberry Pi
+https://roboticsbackend.com/install-use-vim-raspberry-pi/
+
+Livebox 6:	http://192.168.1.1/
+TP-Link:	http://192.168.0.1/
+
+
+
+
+https://wiki.banana-pi.org/Getting_Started_with_M2_Ultra_%26_Berry#Linux
+https://wiki.banana-pi.org/Banana_Pi_BPI-M2_Berry#Image_Release
+https://download.banana-pi.dev/d/ca025d76afd448aabc63/?p=%2FImages%2FBPI-M2U%2FRaspbian&mode=list

@@ -1,0 +1,75 @@
+emacs alternatives
+  Visual Studio Code
+  Atom
+  VSCodium
+  Eclipse
+  Kate
+  Geany
+  PyDev
+______________________
+
+C^x C^c :exit
+C^g :cancel command
+
+C^f C^b M^f M^b :move forward/backward a char/word
+C^n C^p :move to next/prev line
+C^a C^e M^a M^e :move to beginning/end of line/sentence
+C^u [number] [command] :repeats [command]
+C^/ C^_   C^x u: undo
+C^l :move screen so current line is at the top/middle/bottom of the display
+C^m :add new line
+
+C^h k C^f
+C^d :supr
+M^DEL^ :dels prev word
+M^d : suprs next word
+C^k : cuts till end of line
+M^k : cuts till end of paragraph
+C^SP^ : starts selection
+C^w : cuts selection
+C^y : pastes text
+C^x C^f [file] :
+
+C^x 1 :kills all other windows
+C^x C^b : lists buffers
+C^x b [buffer] : switch to [buffer]
+C^x s : save some buffers
+
+C^x : char extend
+M^x : command extend
+
+M^x [mode-name]
+
+SEARCHING 
+C^s [string] search
+C^r [string] reverse search
+C^s next occurrence
+C^r previous occurrence
+DEL^ return to previous occurrence
+
+WINDOWS-FRAMES
+C^x 2 : two in-windows
+C^x 4 C^f [file] : second in-window with [file]
+M^C^v : scroll lower in-window
+C^x o : switch to another in-window
+C^x 5 2 : opens new window-frame
+C^x 5 0 : closes current window-frame
+
+RECURSIVE EDITING LEVELS
+ESC^ ESC^ ESC^ : exits minibuffer and recursive editing levels
+
+HELP
+C^h ? : general help
+C^h c [command] : basic [command] help
+C^h k [command] : detailed [command] help
+C^h x [command action] : detailed [command] help
+C^h v [variable] : [variable] documentation
+C^h i : included manuals
+C^h r : documentation
+
+BROKEN KEY BINDINGS
+C^v 
+M^v
+C^z 
+C^x C^z
+C^u 20 C^x f : Auto-fill-mode creates 20 char wide lines

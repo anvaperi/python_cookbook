@@ -1,0 +1,279 @@
+> $PSVersionTable
+
+Name                           Value
+----                           -----
+PSVersion                      7.3.2
+PSEdition                      Core
+GitCommitId                    7.3.2
+OS                             Microsoft Windows 10.0.22621
+Platform                       Win32NT
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
+WSManStackVersion              3.0
+
+> $PSVersionTable.PSVersion
+
+Major  Minor  Build  Revision
+-----  -----  -----  --------
+5      1      22621  963
+
+> PowerShell
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+
+> Get-Verb	# lists all PS verbs
+
+> Get-Command # lists all cmds
+
+> Get-Help
+
+> Get-Member #??
+
+> Get-Command -Verb *Dis* -Noun *we*
+
+CommandType  Name                               Version    Source
+-----------  ----                               -------    ------
+Function     Disable-NetAdapterPowerManagement  2.0.0.0    NetAdapter
+Function     Disable-StorageEnclosurePower      2.0.0.0    Storage
+Cmdlet       Disable-WebCentralCertProvider     1.0.0.0    WebAdministration
+Cmdlet       Disable-WebGlobalModule            1.0.0.0    WebAdministration
+Cmdlet       Disable-WebRequestTracing          1.0.0.0    WebAdministration
+Cmdlet       Disable-WmsWebLimiting             1.0        MultiPoint
+
+> Get-Help -Name [command] 
+
+NAME: name of the command.
+SYNTAX: Shows ways to call the command by using a combination of flags, and sometimes, allowed parameters.
+ALIASES: Lists any aliases for a command. An alias is a different name for a command, and it can be used to invoke the command.
+REMARKS: Provides information about what commands to run to get more help for this command.
+PARAMETERS: Provides details about the parameter. It lists its type, a longer description, and acceptable values, if applicable.
+
+
+> Get-Help [command] -[Flag]
+FLAGS
+Full: Returns a detailed help page. It specifies information like parameters, inputs, and outputs that you don't get in the standard response.
+Detailed: Returns a response that looks like the standard response, but it includes a section for parameters.
+Examples: Returns only examples, if any exist.
+Online: Opens a web page for your command.
+Parameter: Requires a parameter name as an argument. It lists a specific parameter's properties.
+
+> Get-Help -Name Get-FileHash
+> help Get-FileHash
+> help Get-FileHash -Examples
+
+
+> Get-Process -Name svchost | Get-Member
+
+   TypeName: System.Diagnostics.Process
+
+Name      MemberType     Definition
+----      ----------     ----------
+Handles   AliasProperty  Handles = Handlecount
+Name      AliasProperty  Name = ProcessName
+NPM       AliasProperty  NPM = NonpagedSystemMemor…
+PM        AliasProperty  PM = PagedMemorySize64
+SI        AliasProperty  SI = SessionId
+…
+
+> Get-Process -Name svchost | Get-Member | Select-Object Name, MemberType
+Name         MemberType
+----         ----------
+Handles      AliasProperty
+Name         AliasProperty
+…
+
+> Get-Process -Name svchost | Get-Member | Select-Object *
+
+TypeName                   Name         MemberType Definition
+--------                   ----         ---------- ----------
+System.Diagnostics.Process Handles   AliasProperty Handles = Handlecount
+System.Diagnostics.Process Name      AliasProperty Name = ProcessName
+…
+
+> Get-Command -ParameterType System.Diagnostics.Process
+
+CommandType   Name                    Version
+-----------   ----                    -------
+Cmdlet        Debug-Process           7.0.0.0
+Cmdlet        Enter-PSHostProcess     7.3.2.500
+Cmdlet        Get-Process             7.0.0.0
+Cmdlet        Get-PSHostProcessInfo   7.3.2.500
+Cmdlet        Stop-Process            7.0.0.0
+Cmdlet        Wait-Process            7.0.0.0
+…
+
+> Get-Process | Get-Member
+
+   TypeName: System.Diagnostics.Process
+
+Name     MemberType     Definition
+----     ----------     ----------
+Handles  AliasProperty  Handles = Handlecount
+Name     AliasProperty  Name = ProcessName
+NPM      AliasProperty  NPM = NonpagedSystemMemorySize64
+PM       AliasProperty  PM = PagedMemorySize64
+SI       AliasProperty  SI = SessionId
+VM       AliasProperty  VM = VirtualMemorySize64
+…
+
+> Get-Process | Get-Member | Select-Object Name, MemberType
+
+Name        MemberType
+----        ----------
+Handles  AliasProperty
+Name     AliasProperty
+…
+
+> Get-Process pwsh | Format-List -Property *
+
+Name           : pwsh
+Id             : 20824
+PriorityClass  : Normal
+FileVersion    : 7.3.2.500
+…
+
+> Get-Process pwsh | Get-Member -Name C*
+
+   TypeName: System.Diagnostics.Process
+
+Name             MemberType     Definition
+----             ----------     ----------
+CancelErrorRead  Method         void CancelErrorRead()
+CancelOutputRead Method         void CancelOutputRead()
+Close            Method         void Close()
+CloseMainWindow  Method         bool CloseMainWindow()
+…
+
+> Get-Process pwsh | Select-Object -Property Id, Name, CPU
+
+   Id Name  CPU
+   -- ----  ---
+11992 pwsh 0.14
+
+> Get-Process | Sort-Object -Descending -Property Name, CPU
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+     10     5.71       8.48       0.00    1644   0 WUDFHost
+     19     4.41      19.37       0.00    7916   0 wslservice
+    181     8.41      20.34       0.00    4152   0 WmsSvc
+     15     2.92      13.97       0.00    8064   1 WmsSessionAgent
+     16     3.89      13.64       0.00    4064   0 WmsSelfHealingSvc
+     13     8.02      16.37       0.00   14764   0 WmiPrvSE
+     17    10.83      20.35       0.00    5340   0 WmiPrvSE
+     21    39.95      41.32       0.00    3868   0 WmiPrvSE
+…
+
+> Get-Process code | Sort-Object -Property @{Expression = "Name"; Descending = $True}, @{Expression = "CPU"; Descending = $False}
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+     13    10.36      24.76       0.00    4208   1 Code
+     14    21.27      83.40       0.03   17924   1 Code
+     14    22.46      75.61       0.05    4448   1 Code
+     17    54.59     118.91       0.11   17540   1 Code
+     17    14.22      41.90       0.17    6052   1 Code
+     38    40.62      95.20       0.41    3496   1 Code
+     19    55.79     104.50       1.80    2268   1 Code
+     34   150.15     120.77       3.17    2260   1 Code
+     22   122.81     156.95       7.95    6324   1 Code
+
+> Get-Process | Where-Object CPU -gt 2 | Sort-Object CPU -Descending | Select-Object -First 3
+
+ NPM(K)    PM(M)      WS(M)     CPU(s)      Id  SI ProcessName
+ ------    -----      -----     ------      --  -- -----------
+     22   122.33     157.12       8.45    6324   1 Code
+     22   156.25     213.07       6.31   19284   1 chrome
+     15     4.93       8.60       6.06    9796   1 AUEPMaster
+
+#### DO FILTERING LEFT, FORMATTING RIGHT #### 👍    # Format-Table and Format-List
+> Get-Process | Select-Object Name | Where-Object Name -eq 'name-of-process' # ☹️ :(
+> Get-Process | Where-Object Name -eq name-of-process | Select-Object Name   # 😐 :|
+> Get-Process -Name name-of-process | Select-Object Name                     # 🙂 :)
+
+> Get-Process 'some process' | Format-Table Name,CPU | Get-Member            # ☹️ :(
+> Get-Process 'some process' | Select-Object Name, CPU | Get-Member          # 🙂 :)
+
+
+
+> "a string" | Get-Member
+
+   TypeName: System.String
+
+Name                 MemberType            Definition
+----                 ----------            ----------
+Clone                Method                System.Object Clone(), Syst…
+CompareTo            Method                int CompareTo(System.Object
+…
+
+
+> "a string" | Get-Member | Format-List
+
+TypeName   : System.String
+Name       : Clone
+MemberType : Method
+Definition : System.Object Clone(), System.Object
+             ICloneable.Clone()
+
+TypeName   : System.String
+Name       : CompareTo
+MemberType : Method
+Definition : int CompareTo(System.Object value), int
+             CompareTo(string strB), int
+             IComparable.CompareTo(System.Object obj), int
+             IComparable[string].CompareTo(string other)
+…
+
+
+
+
+
+
+> New-Item HelloWorld.ps1
+> code .\HelloWorld.ps1 # open editor
+. ./HelloWorld.ps1  # run
+
+
+
+Get-ExecutionPolicy
+Unrestricted Restricted RemoteSigned
+
+
+> $PSHOME
+C:\Program Files\PowerShell\7
+> $Home
+C:\Users\donan
+
+> $Profile | Select-Object *
+
+AllUsersAllHosts       : C:\Program Files\PowerShell\7\profile.ps1
+AllUsersCurrentHost    : C:\Program Files\PowerShell\7\Microsoft.PowerShell_profile.ps1
+CurrentUserAllHosts    : C:\Users\donan\OneDrive\OneDrive Documents\PowerShell\profile.ps1
+CurrentUserCurrentHost : C:\Users\donan\OneDrive\OneDrive Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+Length                 : 86
+
+
+> New-Item -Path $Profile.CurrentUserCurrentHost
+
+    Directory: C:\Users\donan\OneDrive\OneDrive
+Documents\PowerShell
+
+Mode    LastWriteTime        Length Name
+----    -------------        ------ ----
+-a---   04/02/2023  15:24    0      Microsoft.PowerShell_profile.ps1
+
+
+
+
+> New-Item `
+>>   -ItemType "file" `
+>>   -Value 'Write-Host "Hello <replace with your name>, welcome back" -foregroundcolor Green ' `
+>>   -Path $Profile.CurrentUserCurrentHost -Force
+
+
+> New-Item -Path . -Name "whatever.ps1" -ItemType "file"
+

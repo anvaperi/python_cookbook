@@ -1,0 +1,61 @@
+$ ssh pi@banana00.local
+$ sudo apt install nmap
+$ nmap -sP 192.168.0.0/24
+
+# sudo apt install build-essential 	# GNU Compiler Collection for compiling software from source
+# sudo apt install htop            	# to see what commands are currently running on the system
+# sudo apt install net-tools    	# allow to use ifconfig on the RPis
+# sudo apt install screen		# to persist our terminal session between log-outs
+
+$ sudo vim /etc/hostname
+$ sudo vim /etc/hosts		# add [IPs]+TAB+[hostnames]
+
+$ sudo apt install ntpdate -y		# periodically synchronise the datetime on the RPi with a NTP server
+$ sudo reboot
+
+### Configuring Shared Storage ###
+$ lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda           8:0    1 114.6G  0 disk			# flash drive
+└─sda1        8:1    1 114.6G  0 part
+mmcblk0     179:0    0  57.9G  0 disk			# Micro SD card
+├─mmcblk0p1 179:1    0   256M  0 part /boot
+└─mmcblk0p2 179:2    0   6.8G  0 part /
+
+# format the USB key to utilise the ext4 journaling filesystem
+$ sudo mkfs.ext4 /dev/sda1
+
+$ sudo mount /dev/sda1 /mnt
+$ cd /mnt
+
+# This gives permissive access to the sharedfs network drive across all RPis
+$ sudo mkdir sharedfs
+$ sudo chown nobody.nogroup -R /mnt/sharedfs
+$ sudo chmod 777 -R /mnt/sharedfs
+
+# In order for this drive to persist across reboots it is necessary to modify the fstab file to mount the USB key on boot of the RPi.
+$ blkid			# copy: UUID="404cac1c-bc33-40a1-ae00-66c30e96a87d"
+sudo vim /etc/fstab  # add line UUID=404cac1c-bc33-40a1-ae00-66c30e96a87d /mnt/sharedfs ext4 defaults 0 2
+sudo mount -a
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+/dev/sda1: UUID="404cac1c-bc33-40a1-ae00-66c30e96a87d" TYPE="ext4" PARTUUID="ec3e71f0-01"
+
+
+
+ssh pi@banana00.local # primary node
+sudo vim /etc/hosts
+## edit ##
+  [IP_ADDR_OF_NODE01]      node01
+  [IP_ADDR_OF_NODE02]      node02
+  [IP_ADDR_OF_NODE03]      node03
+## save ##
+sudo apt install slurm-wlm -y
+
+# copy the default configuration to the SLURM configuration directory
+cd /etc/slurm-llnl
+cp /usr/share/doc/slurm-client/examples/slurm.conf.simple.gz .
+gzip -d slurm.conf.simple.gz
+mv slurm.conf.simple slurm.conf
+sudo vim /etc/slurm-llnl/slurm.conf  ## edit > SlurmctldHost=rpicluster01(IP_ADDR_OF_NODE00)

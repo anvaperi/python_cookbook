@@ -1,0 +1,13 @@
+int:year = prompt "enter year"
+
+unless year.isnumber && year > 1582 then 
+  warn "not gregorian calendar"
+  exit
+
+// 0 false - 1 true
+
+bool:leap = year % 400 == 0 || year % 4 == 0 && year % 100 > 0 
+
+print "$year has $(365 + $leap) days"
+
+// on average a year has 365.2425 days 

@@ -1,0 +1,388 @@
+
+command prompt
+https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/prompt
+
+Append the String; C:\bin\batch to the end of the system variable PATH.
+
+$ powershell start cmd -v runAs 	# opens admin cmd promp 
+
+
+#### APPEARANCE ####
+
+$ prompt $t$s$p$s$$$s
+
+17:42:32.87 C:\Windows $
+
+$ title window-title-name
+$ color F0
+$ color F5
+$ color attr
+
+$ cls
+
+
+$ @echo off
+@echo on
+$
+
+#### INFO ####
+
+$ systeminfo
+
+Host Name:                 ZEPHIR
+OS Name:                   Microsoft Windows 11 Pro
+OS Version:                10.0.22621 N/A Build 22621
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+
+$ set  	# show env var
+
+$ path 
+
+$ clip /?  # cmd help
+
+$ [cmd] -help	# cmd help
+$ [cmd] /?		# idem
+
+
+
+$ assoc
+.001=WinRAR
+.386=vxdfile
+.7z=WinRAR
+.avi=WMP11.AssocFile.AVI
+.bat=batfile
+.bz=WinRAR
+.bz2=WinRAR
+.cmd=cmdfile
+.com=comfile
+.css=CSSfile
+.csv=Excel.CSV
+.cur=curfile
+.dll=dllfile
+.doc=Word.Document.8
+...
+
+$ powercfg help
+
+POWERCFG /COMMAND [ARGUMENTS]
+Description:
+  Enables users to control power settings on a local system.
+  For detailed command and option information, run "POWERCFG /? <COMMAND>"
+Command List:
+  /LIST, /L          Lists all power schemes.
+  /QUERY, /Q         Displays the contents of a power scheme.
+  /CHANGE, /X        Modifies a setting value in the current power scheme.
+  ...
+
+$ powercfg /energy
+Energy efficiency problems were found.
+See C:\Windows\System32\energy-report.html for more details.
+
+
+
+$ ver
+Microsoft Windows [Version 10.0.22621.1105]
+
+
+$ tasklist	# show open programs
+
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+System Idle Process              0 Services                   0          8 K
+System                           4 Services                   0      2,656 K
+Secure System                  172 Services                   0     50,384 K
+Registry                       220 Services                   0     63,608 K
+smss.exe                       752 Services                   0      1,228 K
+...
+
+
+$ taskkill /IM [task.exe] /F
+
+$ date		# show and change date
+The current date is: 29/01/2023
+
+$ time 		# show and change time
+The current time is: 20:21:06.72
+
+$ vol
+ Volume in drive C has no label.
+ Volume Serial Number is 7447-32EF
+
+
+$ cmd
+Microsoft Windows [Version 10.0.22621.1105]
+(c) Microsoft Corporation. All rights reserved.
+
+$ help
+For more information on a specific command, type HELP command-name
+ASSOC          Displays or modifies file extension associations.
+ATTRIB         Displays or changes file attributes.
+BREAK          Sets or clears extended CTRL+C checking.
+...
+
+
+
+#### DRIVERS ####
+
+$ driverquery
+
+Module Name  Display Name           Driver Type   Link Date
+============ ====================== ============= ======================
+1394ohci     1394 OHCI Compliant Ho Kernel
+3ware        3ware                  Kernel        19/05/2015 00:28:03
+ACPI         Microsoft ACPI Driver  Kernel
+AcpiDev      ACPI Devices driver    Kernel
+...
+
+$ sfc			# system file checker
+$ sfc /scannow
+                
+$ sfc
+Microsoft (R) Windows (R) Resource Checker Version 6.0
+Scans the integrity of all protected system files and replaces incorrect versions with correct Microsoft versions.
+SFC [/SCANNOW] [/VERIFYONLY] [/SCANFILE=<file>] [/VERIFYFILE=<file>]
+    [/OFFWINDIR=<offline windows directory> /OFFBOOTDIR=<offline boot directory> [/OFFLOGFILE=<log file path>]]
+
+
+$ diskpart
+Microsoft DiskPart version 10.0.22621.1
+
+Copyright (C) Microsoft Corporation.
+On computer: ZEPHIR
+
+DISKPART> list disk
+
+  Disk ###  Status         Size     Free     Dyn  Gpt
+  --------  -------------  -------  -------  ---  ---
+  Disk 0    Online          953 GB  1024 KB        *
+
+DISKPART> select disk 0
+
+Disk 0 is now the selected disk.
+
+DISKPART> list volume
+
+  Volume ###  Ltr  Label        Fs     Type        Size     Status     Info
+  ----------  ---  -----------  -----  ----------  -------  ---------  --------
+  Volume 0     C                NTFS   Partition    953 GB  Healthy    Boot
+  Volume 1                      FAT32  Partition    100 MB  Healthy    System
+  Volume 2                      NTFS   Partition    693 MB  Healthy    Hidden
+
+DISKPART> select volume 2
+
+Volume 2 is the selected volume.
+
+DISKPART> extend
+
+
+
+# Deployment Image Servicing and Management (DISM) is a command-line tool that is used to service Windows images. You can use DISM image management commands to mount and get information about Windows image (. wim) files, Full-flash utility (FFU) files, or virtual hard disks (VHD)
+$ dism 
+
+$ subst Q: %CD%	# creates a virtual Q drive pointing to current folder
+$ subst Q: /d	# deletes virtual Q drive
+
+$ format [drive]
+
+$ label # disk label
+$ chkdsk 	# check disk
+
+
+#### NAVIGATION ####
+
+$ chdir 	# change dir 
+$ cd		# idem
+
+$ cipher – Wipes Free Space and Encrypts Data
+
+$ dir
+
+$ del [file]
+
+$ attrib +h +s +r [folder]	# hides [folder]
+$ attrib -h -s -r [folder]	# unhides [folder]
+
+$ start [URL]
+
+
+$ cd src
+$ tree
+$ tree
+Folder PATH listing
+Volume serial number is 7447-32EF
+C:.
+├───cli
+│   ├───unix
+│   └───win32
+├───libgit2
+│   ├───streams
+│   ├───transports
+│   └───xdiff
+└───util
+    ├───allocators
+    ├───hash
+    │   ├───rfc6234
+    │   └───sha1dc
+    ├───unix
+    └───win32
+
+$ mkdir [folder]
+$ md [folder]	# idem
+$ rmdir [folder to delete]
+$ dr [empty folder to delete]
+
+$ move [file/folder] [path]
+
+$ xcopy	# advanced copy
+
+$ ren [old name] [new name]
+
+
+#### FILES ####
+
+$ more [file]	# shows content
+$ type [file whose content is to be printed]
+$ sort [file] # sort files
+$ dir | clip	# copy dir stdout to clipboard
+
+$ fc dummyabc.txt dummydef.txt
+Comparing files dummyabc.txt and DUMMYDEF.TXT
+***** dummyabc.txt
+item 2
+item 3
+item 5
+***** DUMMYDEF.TXT
+item 2
+item 4
+item 5
+*****
+
+
+
+$ comp [file 1] [file 2]  # compare files
+
+$ convert [FAT16/FAT32 file]  # NFTS file
+
+$ expand  # extract from compressed .cab cabinet files.
+
+$ find "[string]" file
+$ find "because" "..\dummy text.txt"
+
+---------- ..\DUMMY TEXT.TXT
+"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..." 
+
+
+
+
+
+#### NETWORK ####
+
+$ netstat -an
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State
+  TCP    0.0.0.0:7              0.0.0.0:0              LISTENING
+  TCP    127.0.0.1:49927        127.0.0.1:1042         ESTABLISHED
+  TCP    192.168.1.17:50219     17.248.180.142:443     CLOSE_WAIT
+  TCP    192.168.1.17:50585     142.250.178.163:443    TIME_WAIT
+  TCP    192.168.1.17:50860     216.58.200.131:443     ESTABLISHED
+  TCP    [::]:49664             [::]:0                 LISTENING
+  TCP    [::]:49690             [::]:0                 LISTENING
+  UDP    0.0.0.0:7              *:*                          
+  UDP    127.0.0.1:1900         *:*                    
+  UDP    127.0.0.1:58953        127.0.0.1:58954          
+  UDP    127.0.0.1:63290        127.0.0.1:63289      
+  UDP    [fe80::84ca:7495:6916:9102%23]:1900  *:*                   
+  UDP    [fe80::e531:9e6e:bf1d:7a44%15]:55560  *:*    
+
+$ ping "www.freecodecamp.org"
+
+Pinging www.freecodecamp.org [104.26.2.33] with 32 bytes of data:
+Reply from 104.26.2.33: bytes=32 time=14ms TTL=56
+Reply from 104.26.2.33: bytes=32 time=12ms TTL=56
+
+Ping statistics for 104.26.2.33:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 12ms, Maximum = 14ms, Average = 13ms
+
+
+
+# show all Wi-Fi passwords
+$ for /f "skip=9 tokens=1,2 delims=:" %i in ('netsh wlan show profiles') do @echo %j | findstr -i -v echo | netsh wlan show profiles %j key=clear
+
+$ ipconfig
+$ ipconfig 
+$ ipconfig /release
+$ ipconfig /renew
+$ ipconfig /flushdns
+
+
+
+$ net
+
+$ ping
+
+
+#### SCRIPTING ####
+
+$ echo "Hello World"
+"Hello World"
+
+$ pause
+Press any key to continue . . .
+
+$ rem [comment]
+
+$ choice
+[Y,N]?Y 
+
+$ shutdown
+
+# aliases
+$ doskey
+
+
+$ start # open new window or start a program
+
+
+$ echo %PROCESSOR_ARCHITECTURE%
+AMD64
+
+$ set  # list env var
+a=5
+ACSvcPort=17532
+ALLUSERSPROFILE=C:\ProgramData
+...
+
+
+
+
+if %ERRORLEVEL% neq 0 goto ProcessError
+
+@rem ... other code
+exit /b 0
+
+:ProcessError
+@rem process error
+exit /b 1
+
+
+#### ARGS ####
+
+@echo off
+echo %1 + %2 + %3
+
+::set /A variable-name=value
+set /A number=4
+echo %number%
+
+
+#### PowerShell ####
+$ pwsh
+
+
+https://www.tutorialspoint.com/batch_script/index.htm

@@ -1,0 +1,21 @@
+00helloworld.sh
+01userin_exit.sh
+02sh_args.sh
+03integers.sh
+04bool_if.sh
+05switch.sh
+06while.sh
+functions.sh
+global_local.sh
+strings.sh
+Bash.txt
+Git.txt
+dummy text.txt
+dummyText2.txt
+emacs.txt
+nano.txt
+python.txt
+script_list.txt
+sphinx.txt
+vim.txt
+vsc.txt
