@@ -1,0 +1,12 @@
+C:\Users\donan\python_cookbook\venv\Scripts\python.exe C:\Users\donan\python_cookbook\01_basic_datatypes\4_decimal.py
+10
+3.14
+3.140000000000000124344978758017532527446746826171875
+3.141592653589793115997963468544185161590576171875
+3.14
+1.4142135623730951
+1.414213562373095048801688724
+NaN
+-Infinity
+
+Process finished with exit code 0
