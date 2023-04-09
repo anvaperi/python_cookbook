@@ -1,0 +1,16 @@
+C:\Users\donan\python_cookbook\venv\Scripts\python.exe C:\Users\donan\python_cookbook\02_complex_native_datatypes\01_iterators_and_iterables.py
+Hello!
+Hello!
+Hello!
+1
+2
+3
+4
+5
+e
+d
+c
+b
+a
+
+Process finished with exit code 0
