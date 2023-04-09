@@ -1,0 +1,10 @@
+C:\Users\donan\python_cookbook\venv\Scripts\python.exe C:\Users\donan\python_cookbook\02_complex_native_datatypes\n12_aggregation_f.py
+rd_sum=78
+rd_count=13
+rd_avg=6.0
+rd_max=12
+rd_min=0
+rd_any7=True
+rd_all7=False
+
+Process finished with exit code 0

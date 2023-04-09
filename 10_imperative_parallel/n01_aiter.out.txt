@@ -1,0 +1,3 @@
+C:\Users\donan\python_cookbook\venv\Scripts\python.exe C:\Users\donan\python_cookbook\10_imperative_parallel\n01_aiter.py
+1 3 2 2
+Process finished with exit code 0

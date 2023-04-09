@@ -19,3 +19,10 @@ class AsyncIterable:
 		await asyncio.sleep(value := randint(1, 3))
 		self._index += 1
 		return value
+
+if __name__ == '__main__':
+	async def main():
+		async for number in AsyncIterable(4):
+			print(number, end=' ')
+
+	asyncio.run(main())

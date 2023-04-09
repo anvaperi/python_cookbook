@@ -6,9 +6,9 @@ labels ✗
 Basic datatypes ✓
 numbers: bool✓, int✓, float✓, complex✓
 02 COMPLEX NATIVE DATATYPES
-Iterables
+Iterables✓
 zip
-Aggregation functions
+Aggregation functions✓
 bytes
 Str
   str & bytes methods
