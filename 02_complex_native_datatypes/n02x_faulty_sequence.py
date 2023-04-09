@@ -1,8 +1,8 @@
 class SequenceIterator:
 	def __init__(self, sequence=None, function=lambda t: t, *, stop=0):
-		self.__sequence = sequence
-		self.__function = function
-		self.__index = stop if sequence is None else 0
+		self._sequence = sequence
+		self._function = function
+		self._index = stop if sequence is None else 0
 
 	def __iter__(self):
 		return self
@@ -10,18 +10,18 @@ class SequenceIterator:
 	@staticmethod
 	def __next_decorator__(next_f):
 		def __next_generator__(self):
-			if self.__sequence is None:
-				self.__sequence = range(self.__index)
-				self.__index = 0
+			if self._sequence is None:
+				self._sequence = range(self._index)
+				self._index = 0
 			next_f(self)
 		return __next_generator__
 
 	@__next_decorator__
 	def __next__(self):
-		if self.__index >= len(self.__sequence):
+		if self._index >= len(self._sequence):
 			raise StopIteration
-		item = self.__function(self.__sequence[self.__index])
-		self.__index += 1
+		item = self._function(self._sequence[self._index])
+		self._index += 1
 		return item
 
 if __name__ == '__main__':

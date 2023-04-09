@@ -1,17 +1,17 @@
 class SequenceIterator:
 	def __init__(self, sequence, function=lambda t: t):
-		self.__sequence = sequence
-		self.__function = function
-		self.__index = 0
+		self._sequence = sequence
+		self._function = function
+		self._index = 0
 
 	def __iter__(self):
 		return self
 
 	def __next__(self):
-		if self.__index >= len(self.__sequence):
+		if self._index >= len(self._sequence):
 			raise StopIteration
-		item = self.__function(self.__sequence[self.__index])
-		self.__index += 1
+		item = self._function(self._sequence[self._index])
+		self._index += 1
 		return item
 
 if __name__ == '__main__':

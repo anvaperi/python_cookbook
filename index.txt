@@ -1,3 +1,5 @@
+private module
+    _supposed_to_be_private_object,
 00 UNRELATED TOPICS ✓
 01 BASIC DATATYPES ✓
 labels ✗
@@ -9,9 +11,9 @@ zip
 Aggregation functions
 bytes
 Str
-str & bytes methods
-only str methods
-regex
+  str & bytes methods
+  only str methods
+  regex
 Enum
 List
 Tuple

@@ -1,0 +1,13 @@
+C:\Users\donan\python_cookbook\venv\Scripts\python.exe C:\Users\donan\python_cookbook\02_complex_native_datatypes\06_datainlessgen.py
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+
+Process finished with exit code 0
