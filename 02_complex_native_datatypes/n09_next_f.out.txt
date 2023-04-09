@@ -1,0 +1,12 @@
+with open("addresses.csv") as csv_file:
+	next(csv_file) # skips manually the header.
+	for line in csv_file:
+		# Process file line by line here...
+		print(line, end=' ')
+print()
+from n02_sequence import SequenceIterator
+numbers_iter = SequenceIterator([1, 2, 3])
+check = 1
+while check:
+	check = next(numbers_iter, 0)
+	print(check, end=' ')

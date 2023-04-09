@@ -16,7 +16,7 @@ class SequenceIterator:
 
 if __name__ == '__main__':
 	for item in SequenceIterator([1, 2, 3, 4], lambda x: x * x):
-		print(item)
+		print(item, end=' ')
 
 # sequence = SequenceIterator([1, 2, 3, 4])
 #

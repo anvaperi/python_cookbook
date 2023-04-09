@@ -14,3 +14,8 @@ class ReusableRange:
 		except StopIteration:
 			self._iter = iter(self._range)
 			raise
+
+if __name__ == '__main__':
+	numbers = ReusableRange(10)
+	print(list(numbers))
+	print(list(numbers))
