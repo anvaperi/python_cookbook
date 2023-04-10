@@ -1,0 +1,20 @@
+C:\Users\donan\python_cookbook\venv\Scripts\python.exe C:\Users\donan\python_cookbook\02_complex_native_datatypes\n17_recurrence_rel.py
+
+--First Order Recurrence Relations--
+
+[0, 2, 4, 6, 8]
+[1, 3, 5, 7, 9]
+[0, 3, 6, 9, 12]
+[0, 4, 8, 12, 16]
+[1, 1, 1, 1, 1]
+[2, 2, 2, 2, 2]
+[1, -1, 1, -1, 1]
+
+--Second Order Recurrence Relations--
+
+[0, 1, 1, 2, 3, 5, 8, 13]
+[-1, 1, -2, 3, -5, 8]
+[0, 1, 2, 5, 12, 29]
+[2, 1, 3, 4, 7, 11]
+
+Process finished with exit code 0

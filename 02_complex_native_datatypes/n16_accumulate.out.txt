@@ -1,0 +1,9 @@
+C:\Users\donan\python_cookbook\venv\Scripts\python.exe C:\Users\donan\python_cookbook\02_complex_native_datatypes\n16_accumulate.py
+[1, 3, 6, 10, 15]
+[1, 3, 6, 10, 15]
+[9, 9, 9, 5, 5, 5, 2, 2]
+[1, 1.5, 2.25, 3.125, 4.0625]
+[1, -1, -4, -8, -13]
+[1, 1, 2, 2, 3]
+
+Process finished with exit code 0
