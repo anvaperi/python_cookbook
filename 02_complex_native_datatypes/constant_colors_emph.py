@@ -1,0 +1,19 @@
+TO_BACKGROUND = 10
+BRIGHTER = 60
+BLACK = 30
+RED = 31
+GREEN = 32
+YELLOW = 33
+BLUE = 34
+MAGENTA = 35
+CYAN = 36
+GREY = 37
+RESET = 39
+code_str = lambda code: '\033[' + str(code) + 'm'
+
+# EMPHASIS
+STRIKETHROUGH = 9
+UNDERSCORE = 4
+ITALICS = 3
+BOLD = 1
+RESET_ALL = 0

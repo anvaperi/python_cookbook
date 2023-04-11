@@ -2,9 +2,8 @@ import itertools as it
 import random
 import math
 
-def iterator_shuffle(iterator):
+def iterator_shuffle(iterator, pause=3, to_add_element=None):
 	element = 0
-	pause = 3
 	memory = float('nan')
 	index = 0
 	while element is not None:
@@ -18,10 +17,12 @@ def iterator_shuffle(iterator):
 				yield element
 				index += 1
 		pause -= 1
-		print('\npaused')
-	print('END')
+		if to_add_element is not None:
+			yield to_add_element
+		#XXX print('\npaused')
+	#XXX print('END')
 
-# iterable =[1, 2, 3, 4, 5]
-# iterator = iter(iterable)
-
-print(list(iterator_shuffle(iter([1, 2, 3, 4, 5]))))
+#XXX iterable =[1, 2, 3, 4, 5]
+#XXX iterator = iter(iterable)
+if __name__ == '__main__':
+	print(list(iterator_shuffle(iter([1, 2, 3, 4, 5]))))

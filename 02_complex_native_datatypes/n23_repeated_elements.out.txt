@@ -1,0 +1,11 @@
+C:\Users\donan\python_cookbook\venv\Scripts\python.exe C:\Users\donan\python_cookbook\02_complex_native_datatypes\n23_repeated_elements.py
+
+
+
+-------------------
+Repeated elements
+['abc', 'abc', 'abc', 'abc', 'abc']
+['a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c', 'a', 'b', 'c']
+abcabcabcabcabc
+
+Process finished with exit code 0
