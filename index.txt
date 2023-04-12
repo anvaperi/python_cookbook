@@ -7,7 +7,7 @@ Basic datatypes ✓
 numbers: bool✓, int✓, float✓, complex✓
 02 COMPLEX NATIVE DATATYPES
 Iterables✓
-zip
+zip✓
 Aggregation functions✓
 bytes
 Str
