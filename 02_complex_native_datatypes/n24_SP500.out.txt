@@ -1,0 +1,6 @@
+C:\Users\donan\python_cookbook\venv\Scripts\python.exe C:\Users\donan\python_cookbook\02_complex_native_datatypes\n24_snp500_analysis.py
+Max gain: 11.58% on 2008-10-13
+Max loss: -20.47% on 1987-10-19
+Longest growth streak: 14 days (1971-03-26 to 1971-04-15)
+
+Process finished with exit code 0
