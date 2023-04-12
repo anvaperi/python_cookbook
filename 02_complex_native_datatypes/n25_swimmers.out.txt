@@ -1,0 +1,11 @@
+C:\Users\donan\python_cookbook\venv\Scripts\python.exe C:\Users\donan\python_cookbook\02_complex_native_datatypes\n25_swimmers.py
+Backstroke A: Sophia, Grace, Penelope, Addison
+Backstroke B: Elizabeth, Audrey, Emily, Aria
+Breaststroke A: Samantha, Avery, Layla, Zoe
+Breaststroke B: Lillian, Aria, Ava, Alexa
+Butterfly A: Audrey, Leah, Layla, Samantha
+Butterfly B: Alexa, Zoey, Emma, Madison
+Freestyle A: Aubrey, Emma, Olivia, Evelyn
+Freestyle B: Elizabeth, Zoe, Addison, Madison
+
+Process finished with exit code 0
