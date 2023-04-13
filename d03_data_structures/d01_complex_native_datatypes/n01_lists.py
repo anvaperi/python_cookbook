@@ -269,13 +269,3 @@ print(point.x) # 21
 print(point.y) # 42
 
 
-print('----------------')
-
-for count, value in enumerate(['a', 'b', 'c']):
-	print(count, value, end=' ')
-
-print()
-
-for count, value in enumerate(['a', 'b', 'c'], start=1):
-	print(count, value, end=' ')
-
