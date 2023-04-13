@@ -1,0 +1,1 @@
+Single-item data types, such as integers, floats, complex numbers, and Booleans, are always immutable.

@@ -66,3 +66,8 @@ so that you can use them later in for loops.
 asynchronous iterators implement the asynchronous iterator protocol, which consists of two methods:
 .__aiter__() returns an asynchronous iterator, typically self.
 .__anext__() must return an awaitable object from a stream. It must raise a StopAsyncIteration
+
+
+By definition, iterables support the iterator protocol, which specifies how object members are returned when an object is used in an iterator. Python has two commonly used types of iterables:
+- Sequences
+- Generators

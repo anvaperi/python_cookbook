@@ -24,6 +24,10 @@ dict
 OrderedDict
 Object serialization (persistent dicts called shelve)
 obj info
+
+DESCRIPTORS & DECORATORS
+
+
 I/O
 print, input
 Files

@@ -1,0 +1,106 @@
+	Chardet: 	The Universal Character Encoding Detector
+	http	HTTP status codes and messages
+	MarkupSafe	
+	Requests: 	is a simple, yet elegant, HTTP library.
+	Requests-OAuthlib 	: provides first-class OAuth library support for Requests.
+	smtplib	SMTP protocol client (requires sockets).
+	urlib3:	 user-friendly HTTP client
+	Werkzeug 	is a comprehensive WSGI web application library.
+		
+		
+	calendar	Functions for working with calendars, including some emulation of the Unix cal program.
+	Click 	is a Python package for creating beautiful command line interfaces 
+	datetime	Basic date and time types.
+	dateutil 	- powerful extensions to datetime
+	keyword	Test whether a string is a keyword in Python.
+	pip 	 The Python Package Installer
+	pytz 	 World Timezone Definitions for Python
+	setuptools 	
+	time	Time access and conversions.
+	wheel:	 Python wheel packaging standard
+		
+*	treelib
+*	abc 	— Abstract Base Classes
+*	array	Space efficient arrays of uniformly typed numeric values.
+	ast	Abstract Syntax Tree classes and manipulation.
+*	bisect	Array bisection algorithms for binary searching.
+*	collections	Container datatypes
+	contextvars	Context Variables
+	copy	Shallow and deep copy operations.
+*	dataclasses	Generate special methods on user-defined classes.
+	decimal	Implementation of the General Decimal Arithmetic Specification.
+	enum	Implementation of an enumeration class.
+	fractions	Rational numbers.
+*	graphlib	Functionality to operate with graph-like structures
+*	heapq	Heap queue algorithm (a.k.a. priority queue).
+	inspect	Extract information and source code from live objects.
+	itertools	Functions creating iterators for efficient looping.
+	more-itertools
+	numbers	Numeric abstract base classes (Complex, Real, Integral, etc.).
+	operator	Functions corresponding to the standard operators.
+*	queue	A synchronized queue class.
+**	re	Regular expression operations.
+*	shelve	Python object persistence.
+	string	Common string operations.
+	stringprep	String preparation, as per RFC 3453
+	struct	Interpret bytes as packed binary data
+	Pyrsistent 	is a number of persistent collections (by some referred to as functional data structures). Persistent in the sense that they are immutable.
+*	attrs 	is the Python package that will bring back the joy of writing classes by relieving you from the drudgery of implementing object protocols (aka dunder methods). Trusted by NASA for Mars missions since 2020!
+		
+	pymongo
+*	sqlalchemy
+	sqlite3	A DB-API 2.0 implementation using SQLite 3.x.
+		
+	argparse	Command-line option and argument parsing library.
+	asyncio	Asynchronous I/O.
+	builtins	The module that provides the built-in namespace
+	Colorama
+	colorsys	Conversion functions between RGB and other color systems.
+	concurrent.futures	Execute computations concurrently using threads or processes.
+*	Decorators	 for Humans
+	multiprocessing	Process-based parallelism.
+	os	Miscellaneous operating system interfaces.
+	pprint	Data pretty printer.
+*	pydoc	Documentation generator and online help system.
+	PyParsing 	 A Python Parsing Module
+	random	Generate pseudo-random numbers with various common distributions.
+	signal	Set handlers for asynchronous events.
+	sys	Access system-specific parameters and functions.
+	sysconfig	Python's configuration information
+	threading	Thread-based parallelism.
+*	timeit	Measure the execution time of small code snippets.
+	turtle	An educational framework for simple graphics applications
+		
+		
+		
+		
+	Pillow	 Python Imaging Library (Fork)
+		
+		
+*	cmath	Mathematical functions for complex numbers.
+*	math	Mathematical functions (sin() etc.).
+*	NumPy	 is the fundamental package for scientific computing with Python.
+*	pandas: 	powerful Python data analysis toolkit
+*	Scikit-Learn.	
+*	SciPy 	(pronounced "Sigh Pie") is an open-source software for mathematics, science, and engineering.
+*	spaCy: 	Industrial-strength NLP
+*	stat	Utilities for interpreting the results of os.stat(), os.lstat() and os.fstat().
+*	statistics	Mathematical statistics functions
+*	TensorFlow	 Keras is an implementation of the Keras API that uses TensorFlow as a backend.
+		
+	aws-cli	 This package provides a unified command line interface to Amazon Web Services.
+	Boto3	 - The AWS SDK for Python
+	botocore: .	AWS CLI as well as boto3
+	s3transfer 	An Amazon S5 Transfer Manager
+		
+		
+	csv	Write and read tabular data to and from delimited files.
+	filecmp	Compare files efficiently.
+	fileinput	Loop over standard input or a list of files.
+	JMESPath 	(pronounced "james path") allows you to declaratively specify how to extract elements from a JSON document.
+	json	Encode and decode the JSON format.
+	PyYAML 	is a YAML parser and emitter for Python.
+*	shutil	High-level file operations, including copying.
+		
+		
+		
