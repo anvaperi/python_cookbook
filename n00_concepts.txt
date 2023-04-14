@@ -71,3 +71,32 @@ asynchronous iterators implement the asynchronous iterator protocol, which consi
 By definition, iterables support the iterator protocol, which specifies how object members are returned when an object is used in an iterator. Python has two commonly used types of iterables:
 - Sequences
 - Generators
+
+
+--------------------------------------------------
+COP: Control Oriented: Concentrates on actions imperative procedural  -- STRUCTURED PROCEDURAL?
+DOP: Data Oriented: Concentrates on data (& methods)    -- LAZY EVALUATIONS?
+  - data flows: pass, hide & share
+  - data space: store space access
+OOP: Object Oriented: Concentrates on Class & objects: integrates actions & data; simulates interacting systems
+SOP State Oriented: Concentrates on States and transitions between them -- Automata-based programming?
+  * elements
+    - Input (a switch)
+    - Output (a light bulb)
+    - Actions (flip switch)
+    - States Q: (On, Off)
+        - initial state: q₀ ∈ Q
+        - acepting final states set: F ⊆ Q
+  * automata types
+    - finite: a deteministic finite automata
+        * give rise to regular languages; app: pattern recognition -> equivalent to regex
+    - push-down
+        * give rise to contex-free language; app: parsing
+    - Turing machine
+        * yield recursively enumerable language; app: general computation
+  * Concepts
+    - Alphabet Σ: finite set of symbols
+    - Language: set of strings over an alphabet
+
+
+
