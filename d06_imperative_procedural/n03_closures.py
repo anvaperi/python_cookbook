@@ -82,3 +82,7 @@ generator1()
 print(generator1())
 
 print((generator1() for _ in range(5)))
+
+from functools import partial
+square = partial(lambda exp, base: base ** exp, 2)
+print(square(10))

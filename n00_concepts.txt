@@ -85,8 +85,10 @@ SOP State Oriented: Concentrates on States and transitions between them -- Autom
     - Output (a light bulb)
     - Actions (flip switch)
     - States Q: (On, Off)
-        - initial state: q₀ ∈ Q
-        - acepting final states set: F ⊆ Q
+        - initial state: q₀ ∈ Q (Anfangszustand)
+        - acepting final states set: F ⊆ Q (Endzustände)
+    - Eingabealphabet Σ
+    - Überbangsfunction δ = QxΣ-->Q
   * automata types
     - finite: a deteministic finite automata
         * give rise to regular languages; app: pattern recognition -> equivalent to regex
@@ -98,5 +100,24 @@ SOP State Oriented: Concentrates on States and transitions between them -- Autom
     - Alphabet Σ: finite set of symbols
     - Language: set of strings over an alphabet
 
+Automat = (Q, Σ, δ, q₀, F)
+Übergangsdiagramm
+Tabelle
+Deterministischer endlicher Automat (DEA) vs nicht deterministisches endliche Automat (NEA)
+Ein NEA macht das gleiche wie ein DEA, aber ist nicht deterministisch, dass heißt
+er kann mehrere wege gehen um in ein endzustand zu kommen.
+Potenzmengenkonstruktion wird ein NEA zu DEA machen
+Die ε-Übergänge sind unsere Joker, die wir jederzeit einsetzen dürfen um in einen anderen Zustand zu wechseln.
 
+Regulärer Ausdruck
+Operationen
+- ODER (Alternative) 0+1, 0|1
+- UND (Verkettung) 0·1, 01
+- Wiederhollung 1*
 
+Gesetze zur vereinfachung
+ - Kommutativgesetz: (R+S)=(S+R)
+ - Distributivgesetze: R(S+T)=RS+RT; (S+T)R=SR+TR
+ - Geserte über Kleene-Stern: (R*)* = R*; ∅*=? ε*=ε
+ - Neutrale Elemente: ∅+R=R+∅=R; εR=Rε=R
+ - Absorption: ∅R=R∅=∅

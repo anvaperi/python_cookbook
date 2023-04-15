@@ -4,6 +4,7 @@ def to_romans(num):
 	output_substr = ''
 	output = ''
 	chars = ('IV', 'XL', 'CD', 'M-')
+
 	while num:
 		five_multiple, one_multiple = divmod(num, 5)
 		num, five_multiple = divmod(five_multiple, 2)
@@ -21,7 +22,6 @@ def to_romans(num):
 		output = output_substr + output
 		output_substr = ''
 	return output
-#	return ''.join(output.reverse())
 
-for i in range(500, 4001, 250):
+for i in range(500, 3999, 250):
 	print(to_romans(i), end=' ')
