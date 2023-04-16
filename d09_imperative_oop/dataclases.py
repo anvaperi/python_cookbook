@@ -76,6 +76,8 @@ class WithoutExplicitTypes:
 	name: Any
 	value: Any = 42
 
+#========================================================================================================
+
 # @dataclass() decorator in parentheses. The following parameters are supported:
 #  - init: Add .__init__() method? (Default is True.)
 #  - repr: Add .__repr__() method? (Default is True.)
@@ -84,10 +86,16 @@ class WithoutExplicitTypes:
 #  - unsafe_hash: Force the addition of a .__hash__() method? (Default is False.)
 #  - frozen: If True, assigning to fields raise an exception. (Default is False.)
 
+SUITS = '𝓙♣♦♥♠'
+RANKS = '_-A23456789XJQK'
+
 @dataclass(order=True)
 class PlayingCard:
 	rank: str
 	suit: str
+
+	def __post_init__(self): #XXX no funciona!!
+		self.sort_index = (RANKS.index(self.rank) * len(SUITS) + SUITS.index(self.suit))
 
 	def __str__(self):
 		to_str = self.rank + self.suit
@@ -108,11 +116,8 @@ class PlayingCard:
 
 
 def make_french_deck():
-	return [
-		PlayingCard(i_rank, i_suit)
-		for i_suit in '♥♦♣♠'
-		for i_rank in 'A23456789XJQK'
-	] + [PlayingCard('-', '𝓙')] * 2 + [PlayingCard('_', '𝓙')]
+	return [PlayingCard(i_rank, i_suit) for i_suit in SUITS[1:] for i_rank in RANKS[2:]] + \
+		[PlayingCard(RANKS[1], SUITS[0])] * 2 + [PlayingCard(RANKS[0], SUITS[0])]
 
 @dataclass
 class Deck:
@@ -138,6 +143,14 @@ ace_of_spades = PlayingCard('A', '♠')
 joker = PlayingCard('-', '𝓙')
 two_cards = Deck([queen_of_hearts, ace_of_spades])
 
+print(ace_of_spades > queen_of_hearts)
+#print(joker > queen_of_hearts)
+#print(Deck(sorted(make_french_deck())))
 
+l=[i.sort_index for  i in Deck(make_french_deck()).cards]
 
+print(l)
+mmm = [1, 6, 2, 4].sort()
+print(mmm)
 
+print(['Ford', 'BMW', 'Volvo'].sort())

@@ -47,7 +47,7 @@
 # for key, grp in it.groupby([1, 1, 2, 2, 2, 3]):
 # 	print('{}: {}'.format(key, list(grp)))
 #
-# # When working with groupby(), you need to sort your data on the same key that you would like to group by.
+# # When working with groupby(), you need to sort.py your data on the same key that you would like to group by.
 # # Otherwise, you may get unexpected results.
 # # This is so common that it helps to write a utility function to take care of this for you:
 #
