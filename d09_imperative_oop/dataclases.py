@@ -1,10 +1,12 @@
 from dataclasses import dataclass, make_dataclass, field, fields
 from math import asin, cos, radians, sin, sqrt
 from typing import List, Any
+from binarytree import *
 
 import sys
 sys.path.append('../d02_iterables_and_iterators/')
 from constant_colors_emph import RED, RESET, code_str
+
 
 
 @dataclass
@@ -94,6 +96,7 @@ class PlayingCard:
 	rank: str
 	suit: str
 
+	# print([n for n in BSTree([1, 6, 2, 4]).root.as_array()])
 	def __post_init__(self): #XXX no funciona!!
 		self.sort_index = (RANKS.index(self.rank) * len(SUITS) + SUITS.index(self.suit))
 
@@ -147,10 +150,7 @@ print(ace_of_spades > queen_of_hearts)
 #print(joker > queen_of_hearts)
 #print(Deck(sorted(make_french_deck())))
 
-l=[i.sort_index for  i in Deck(make_french_deck()).cards]
+#l=[i.sort_index for  i in Deck(make_french_deck()).cards]
 
-print(l)
-mmm = [1, 6, 2, 4].sort()
-print(mmm)
+#print(l)
 
-print(['Ford', 'BMW', 'Volvo'].sort())
