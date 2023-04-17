@@ -1,12 +1,6 @@
 from dataclasses import dataclass, make_dataclass, field, fields
 from math import asin, cos, radians, sin, sqrt
-from typing import List, Any
-from binarytree import *
-
-import sys
-sys.path.append('../d02_iterables_and_iterators/')
-from constant_colors_emph import RED, RESET, code_str
-
+from typing import Any
 
 
 @dataclass
@@ -65,11 +59,11 @@ class Position:
 	lon: float = field(default=0.0, metadata={'unit': 'degrees', 'term': 'longitude'})
 
 
-lat_unit = fields(Position)[2].metadata['unit']
-for each_field in fields(Position):
-	print()
-	for each_subfield in ((str(each_field))[6:-1]).replace('=', ':\t').split(','):
-		print(each_subfield)
+# lat_unit = fields(Position)[2].metadata['unit']
+# for each_field in fields(Position):
+# 	print()
+# 	for each_subfield in ((str(each_field))[6:-1]).replace('=', ':\t').split(','):
+# 		print(each_subfield)
 
 #========================================================================================================
 
@@ -79,78 +73,11 @@ class WithoutExplicitTypes:
 	value: Any = 42
 
 #========================================================================================================
+from dataclasses import dataclass
 
-# @dataclass() decorator in parentheses. The following parameters are supported:
-#  - init: Add .__init__() method? (Default is True.)
-#  - repr: Add .__repr__() method? (Default is True.)
-#  - eq: Add .__eq__() method? (Default is True.)
-#  - order: Add ordering methods? (Default is False.)
-#  - unsafe_hash: Force the addition of a .__hash__() method? (Default is False.)
-#  - frozen: If True, assigning to fields raise an exception. (Default is False.)
-
-SUITS = '𝓙♣♦♥♠'
-RANKS = '_-A23456789XJQK'
-
-@dataclass(order=True)
-class PlayingCard:
-	rank: str
-	suit: str
-
-	# print([n for n in BSTree([1, 6, 2, 4]).root.as_array()])
-	def __post_init__(self): #XXX no funciona!!
-		self.sort_index = (RANKS.index(self.rank) * len(SUITS) + SUITS.index(self.suit))
-
-	def __str__(self):
-		to_str = self.rank + self.suit
-		if self.suit == '♥' or self.suit == '♦' or self.rank == '_':
-			to_str = to_str.join([code_str(RED), code_str(RESET)])
-		return to_str
-
-	# def __repr__(self):
-	# 	suit_to_str = self.suit if self.suit == '♣' or self.suit == '♠' else chr(ord(self.suit) - 4)
-	# 	return suit_to_str + self.rank
-
-
-#  In general, a Python object has two different string representations:
-#  - repr(obj) is defined by obj.__repr__() and should return a developer-friendly representation of obj.
-# 	If possible, this should be a code that can recreate obj. Data classes do this.
-#  - str(obj) is defined by obj.__str__() and should return a user-friendly representation of obj.
-# 	Data classes do not implement a .__str__() method, so Python will fall back to the .__repr__() method.
-
-
-def make_french_deck():
-	return [PlayingCard(i_rank, i_suit) for i_suit in SUITS[1:] for i_rank in RANKS[2:]] + \
-		[PlayingCard(RANKS[1], SUITS[0])] * 2 + [PlayingCard(RANKS[0], SUITS[0])]
-
-@dataclass
-class Deck:
-	cards: List[PlayingCard] = field(default_factory=make_french_deck)
-
-	def __repr__(self):
-		cards = ', '.join(f'{c!s}' for c in self.cards)
-		return f'{self.__class__.__name__}({cards})'
-
-
-for card_index, each_card in enumerate(Deck().cards):
-	print('\n' if not card_index % 13 else '', each_card, end=' ')
-print('\n')
-
-print(Deck())
-
-for card_index, each_card in enumerate(Deck().cards):
-	print('\n' if not card_index % 13 else '', each_card, end=' ')
-print('\n')
-
-queen_of_hearts = PlayingCard('Q', '♥')
-ace_of_spades = PlayingCard('A', '♠')
-joker = PlayingCard('-', '𝓙')
-two_cards = Deck([queen_of_hearts, ace_of_spades])
-
-print(ace_of_spades > queen_of_hearts)
-#print(joker > queen_of_hearts)
-#print(Deck(sorted(make_french_deck())))
-
-#l=[i.sort_index for  i in Deck(make_french_deck()).cards]
-
-#print(l)
+@dataclass(frozen=True)
+class Position:
+	name: str
+	lon: float = 0.0
+	lat: float = 0.0
 

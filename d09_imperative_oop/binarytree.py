@@ -1,13 +1,25 @@
 def xor(a, b):
 	return ( (a or b) and not (a and b) )
 
+class Data:
+
+	def __init__(self, value):
+		self.value = value
+
+	@staticmethod
+	def __index__(value, get_index=lambda n: n):
+		return int(get_index(value))
 
 class TreeNode:
-	"""Node of Binary Search Tree. It takes a value to store as data and creates two children whithin a list,
+	"""Node of Binary Search Tree. It takes a value to store as data and creates two children within a list,
 	each of them initialised to None. """
-	def __init__(self, value):  #, lr_index = []):
-		self.data = value
-		self.left_right = [None, None] # left, right
+	__name__ = 'Binary search tree node'
+	__slots__ = 'data', 'left_right'
+
+	def __init__(self, value):
+		self.data = value  # value is an object of class 'Data'
+		left_child, right_child = None, None
+		self.left_right = [left_child, right_child]
 
 
 	def search(self, value):
@@ -93,13 +105,14 @@ class BSTree:
 
 
 	def __str__(self):
-		"""This method returns the whole sketch of the tree as a multiline string by calling the 'prefix' method."""
+		"""This method returns the whole sketch of the tree as a multiline string by calling the 'prefix' method.
+		The method plots left and right children above and below their parent respectively."""
 		out = ''
 		for node in self.root.inorder_traverse():
 			out += self.prefix(node.data) + str(node.data) + '\n'
 		return out
 
-
+	# #XXX To review...
 	# def get_node(self, given_breadcrumb, position = None):
 	# 	if position is None:
 	# 		self_breadcrumb_len = len(self.breadcrumb)
@@ -116,7 +129,7 @@ if __name__ == '__main__':
 	my_tree = BSTree([5, 2, 10, 7, 15, 12, 20, 30, 6, 8])
 	print(my_tree)
 	print([n for n in my_tree.root.ordered_array()])
-
+	print(TreeNode.__doc__)
 
 #   ┌─: 2
 # :5
@@ -129,6 +142,12 @@ if __name__ == '__main__':
 #             └─: 20
 #                  └─: 30
 
+
+
+	order = lambda any_list: BSTree(any_list).root.ordered_array()
+	my_list = [4, 1, 6, 2]
+	print()
+	print(f'{my_list=} -> {[n for n in order(my_list)]=}')
 
 # Your updated code looks good! Here are a few suggestions to consider:
 #
@@ -145,3 +164,12 @@ if __name__ == '__main__':
 #
 # You may want to consider adding a __repr__ method to the TreeNode class to provide a more detailed
 # representation of the node when printed in the console.
+
+	# SUITS = '♣♦♥♠'
+	# RANKS = 'A23456789XJQK'
+	#
+	# my_suit = '♠'
+	# my_rank =  '5'
+	#
+	# i = RANKS.index(my_rank) * len(SUITS) + SUITS.index(my_suit)
+	# print(f'{i=}')
