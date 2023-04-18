@@ -1,143 +1,139 @@
 from enum import Enum
 
+#__________________________________________________________________
+
 def xor(a, b):
 	return ( (a or b) and not (a and b) )
-
+#__________________________________________________________________
 
 class Data:
 
-	def __init__(self, value):
-		self.value = value
+	def __init__(self, value, leader=None):
+		if leader is not None:
+			self.leader = leader
+			self.value  = value
+		else:
+			self.leader = value
 
-	@staticmethod
-	def __index__(value, get_index=lambda n: n):
-		return int(get_index(value))
+	def __str__(self):
+		if hasattr(self, 'value'):
+			return str(self.leader) + ': ' + str(self.value)
+		return str(self.leader)
+#_________________________________________________________________
 
 class Side(Enum):
 	L = False
 	R = True
 
 get_side = lambda condition: Side.L if not condition else Side.R
-side_to_bool = lambda side: False if side == Side.L else True
+side_as_bool = lambda side: False if side == Side.L else True
 
+#_________________________________________________________________
 
 class TreeNode:
 	"""Node of Binary Search Tree. It takes a value to store as data and creates two children within a list,
 	each of them initialised to None. """
 	__name__ = 'Binary search tree node'
-	__slots__ = 'data', 'left_right'
+	__slots__ = 'data', 'child_left', 'child_right'
 
-	def __init__(self, value):
-		self.data = value  # value is an object of class 'Data'
-		left_child, right_child = None, None
-		self.left_right = [left_child, right_child]
+	def __init__(self, data):
+		self.data = data  # value is an object of class 'Data'
+		self.child_left = None
+		self.child_right = None
+		#XXX self.multiplicity
 
+	def get_child(self, side):
+		if side == Side.L:
+			return self.child_left
+		return self.child_right
 
-	def search(self, value):
+	def add_child(self, side, data):
+		if side == Side.L:
+			self.child_left = TreeNode(data)
+		else:
+			self.child_right = TreeNode(data)
+		return self.get_child(side)
+
+	def search(self, lead_value):
 		"""Returns the descendant node whose data match the given value or 'None' if not found."""
-		if value == self.data:
+		if lead_value == self.data.leader:
 			return self
-		lr_index = int(value > self.data)
-		if self.left_right[lr_index] is None:
+		side = get_side(lead_value > self.data.leader)
+		if self.get_child(side) is None:
 			return None
-		return self.left_right[lr_index].search(value)
+		return self.get_child(side).search(lead_value)
 
 
-	def insert(self, value):
+	def insert(self, data):
 		"""Inserts a new node with the given data in an inorder way and returns the inserted new node."""
-		lr_index = int(value > self.data)
-		if self.left_right[lr_index] is None:
-			self.left_right[lr_index] = TreeNode(value) #, self.breadcrumb + [bool(lr_index)])
-			return self.left_right[lr_index]
-		self.left_right[lr_index].insert(value)
+		side = get_side(data.leader >= self.data.leader)
+		if self.get_child(side) is None:
+			return self.add_child(side, data)
+		self.get_child(side).insert(data)
 
 
-	def inorder_traverse(self):
-		"""This function is a generator recursively yielding all descendant nodes in inorder way."""
-		if self.left_right[0] is not None:
-			yield from self.left_right[0].inorder_traverse()
-		yield self
-		if self.left_right[1] is not None:
-			yield from self.left_right[1].inorder_traverse()
+	def inorder_traverse(self, path=[]):
+	# 	"""This function is a generator recurively yielding all descendant nodes in inorder way."""
+		if self.child_left is not None:
+			yield from self.child_left.inorder_traverse(path + [Side.L])
+		yield (self, path)
+		if self.child_right is not None:
+			yield from self.child_right.inorder_traverse(path + [Side.R])
 
-
-	def ordered_array(self):
-		"""Iterates all the node data yielding them in inorder way."""
-		return (node.data	for node in self.inorder_traverse())
-
-
-
-class BSTree:
-	"""Composite class of TreeNode with a unique attribute, 'root' as the TreeNode object."""
-	def __init__(self, values):
-		"""Initialises the tree from a list of values by creating a root node and inserting the rest of the values to it."""
-		self.root = TreeNode(values[0])
-		for n in values[1:]:
-			self.root.insert(n)
-
-	#XXX Pending to be tested. TO DO: return 'None' when the value does not belong to any descendant.
-	def subtree(self, value):
-		"""Returns a whole new subtree from a given value of a descendant of root."""
-		return BSTree( [node.data for node in self.root.search(value).inorder_traverse()])
-
-
-	def breadcrumb(self, value):
-		"""Generates for the descendant node with a matching value a 'breadcrumb' list path
-		of booleans corresponding to left(0) and right(1) values. This information is required for other methods.
-		The meaning of the path represents the way to get from the root node to the desired one."""
-		path = []
-		def build_path(node, value):
-			nonlocal path
-			if node.data == value:
-				return path
-			lr_index = int(value > node.data)
-			if node.left_right[lr_index] is None:
-				return None #[]
-			path += [lr_index]
-			return build_path(node.left_right[lr_index], value)
-		return build_path(self.root, value)
-
-
-	def prefix(self, value):
+	@staticmethod
+	def prefix(breadcrumb):
 		"""This function returns a single line of a drawing of the tree structure as a string.
 		It requires the value of the node to be printed out as well as the 'breadcrumb'
 		method to perform intermediate calculations. Also, a xor function is required.
 		It generates the drawing with some Unicode symbols of the drawing-box type."""
-		breadcrumb = self.breadcrumb(value)
+		# breadcrumb = self.breadcrumb(lead_value, skip)
 		breadcrumb_len = len(breadcrumb)
 		if not breadcrumb_len:
-			return ':'
+			return '◆'
 		prefix = ''
 		if breadcrumb_len > 1:
-			for lr in range(breadcrumb_len - 1):
-				prefix += '  │  ' if xor(breadcrumb[lr], breadcrumb[lr + 1]) else '     '
-		prefix += '  └' if breadcrumb[-1] else '  ┌'
-		return prefix + '─: '
+			for edge_index in range(breadcrumb_len - 1):
+				prefix += '  │  ' if xor(
+					side_as_bool(breadcrumb[edge_index]),
+					side_as_bool(breadcrumb[edge_index + 1])
+				) else '     '
+		prefix += '  └' if side_as_bool(breadcrumb[-1]) else '  ┌'
+		return prefix + '─> '
 
+	def ordered_array(self):
+		"""Iterates all the node data yielding them in inorder way."""
+		if hasattr(self.data, 'value'):
+			return (node.data.value for node, _ in self.inorder_traverse())
+		return (node.data.leader	for node, _ in self.inorder_traverse())
 
 	def __str__(self):
 		"""This method returns the whole sketch of the tree as a multiline string by calling the 'prefix' method.
 		The method plots left and right children above and below their parent respectively."""
 		out = ''
-		for node in self.root.inorder_traverse():
-			out += self.prefix(node.data) + str(node.data) + '\n'
+		for node, node_breadcrumb in self.inorder_traverse(path=[]):
+			out += TreeNode.prefix(node_breadcrumb) + str(node.data) + '\n'
 		return out
 
-	# #XXX To review...
-	# def get_node(self, given_breadcrumb, position = None):
-	# 	if position is None:
-	# 		self_breadcrumb_len = len(self.breadcrumb)
-	# 		for position in range(self_breadcrumb_len):
-	# 			if self.breadcrumb[position] != given_breadcrumb[position]:
-	# 				raise AttributeError('Given Breadcrumb is incompatible with current Tree')
-	# 	if len(given_breadcrumb) - 1 - position:
-	# 		lr_index = given_breadcrumb[position]
-	# 		return self.left_right[int(lr_index)].get_node(given_breadcrumb, position + 1)
-	# 	return self
+
+class BSTree:
+	"""Composite class of TreeNode with a unique attribute, 'root' as the TreeNode object."""
+	def __init__(self, data):
+		"""Initialises the tree from a list of values by creating a root node and inserting the rest of the values to it."""
+		self.root = TreeNode(data[0])
+		for n in data[1:]:
+			self.root.insert(n)
+
+	def __str__(self):
+		return str(self.root)
+
+
 
 
 if __name__ == '__main__':
-	my_tree = BSTree([5, 2, 10, 7, 15, 12, 20, 30, 6, 8])
+	#my_data = [Data(x//2 if not x%2 else x, x) for x in [5, 2, 10, 7, 15, 12, 20, 30, 6, 8]]
+	my_data = [Data(x) for x in [5, 5, 2, 2, 10, 7, 15, 12, 20, 30, 6, 8]]
+	my_tree = BSTree(my_data)
+	print(my_tree.root.child_left)
 	print(my_tree)
 	print([n for n in my_tree.root.ordered_array()])
 	print(TreeNode.__doc__)
@@ -155,10 +151,10 @@ if __name__ == '__main__':
 
 
 
-	order = lambda any_list: BSTree(any_list).root.ordered_array()
-	my_list = [4, 1, 6, 2]
-	print()
-	print(f'{my_list=} -> {[n for n in order(my_list)]=}')
+	# order = lambda any_list: BSTree(any_list).root.ordered_array()
+	# my_list = [4, 1, 6, 2]
+	# print()
+	# print(f'{my_list=} -> {[n for n in order(my_list)]=}')
 
 # Your updated code looks good! Here are a few suggestions to consider:
 #
