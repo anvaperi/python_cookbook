@@ -25,17 +25,36 @@ class Quaternion:
 		return Quaternion(m.item((0,0)), m.item((1,0)), m.item((2,0)), m.item(3,0))
 
 	def __str__(self):
-		if self.r == self.i == self.j == self.k:
-			return '0'
+		r       =          self.r
+		rvi	    = r     or self.i
+		rvivj   = rvi   or self.j
+		rvivjvk = rvivj or self.k
 		out = ''
-		if self.r: out += str(self.r) + ' '
-		if self.i: out += str(self.i) + 'i '
-		if self.j: out += str(self.j) + 'j '
-		if self.k: out += str(self.k) + 'k '
+		if not rvivjvk:
+			return '0'
+		if self.k:
+			out = str(self.k) + 'k' + out
+			if rvivj and self.k > 0:
+				out = ' +' + out
+		if self.j:
+			out = str(self.j) + 'j' + out
+			if rvi and self.j > 0:
+				out = ' +' + out
+		if self.i:
+			out = str(self.i) + 'i' + out
+			if r and self.i > 0:
+				out = ' +' + out
+		if self.r:
+			out = str(self.r) + out
 		return out
 
+
 if __name__ == '__main__':
-	q1 = Quaternion(0, 0, 1, 0)
-	q2 = Quaternion(0, 1, 0, 0)
+	q1 = Quaternion(1, 2, 3, 4)
+	q2 = Quaternion(0, 0, 0, -1)
+	q3 = Quaternion(0, 0, 0, -1)
 	s = q1 * q2
-	print(f'{s=}')
+	print(f'{s=} ', s)
+	print(q1, q2, sep='\n')
+	print(f'{q2==q3=}')
+

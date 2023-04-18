@@ -1,5 +1,8 @@
+from enum import Enum
+
 def xor(a, b):
 	return ( (a or b) and not (a and b) )
+
 
 class Data:
 
@@ -9,6 +12,14 @@ class Data:
 	@staticmethod
 	def __index__(value, get_index=lambda n: n):
 		return int(get_index(value))
+
+class Side(Enum):
+	L = False
+	R = True
+
+get_side = lambda condition: Side.L if not condition else Side.R
+side_to_bool = lambda side: False if side == Side.L else True
+
 
 class TreeNode:
 	"""Node of Binary Search Tree. It takes a value to store as data and creates two children within a list,
