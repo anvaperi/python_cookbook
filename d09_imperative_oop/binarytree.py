@@ -29,6 +29,7 @@ get_side = lambda condition: Side.L if not condition else Side.R
 oposite_side = lambda side: Side.R if side == Side.L else Side.L
 side_as_bool = lambda side: False if side == Side.L else True
 
+
 #_________________________________________________________________
 
 class TreeNode:
@@ -52,11 +53,6 @@ class TreeNode:
 			return self.child_left
 		return self.child_right
 
-	def add_child(self, side, data):
-		"""Creates a new TreeNode and inserts it to the current one on the side specified by the parameter 'side'.
-		After that the inserted node is returned."""
-		return self.append_child(side, TreeNode(data))
-
 	def append_child(self, side, other):
 		if side == Side.L:
 			self.child_left = other
@@ -68,7 +64,7 @@ class TreeNode:
 		"""Inserts a new node with the given data in an inorder way and returns the inserted new node."""
 		side = get_side(data.leader >= self.data.leader)
 		if self.get_child(side) is None:
-			return self.add_child(side, data).get_child(side)
+			return self.append_child(side, TreeNode(data)).get_child(side)
 		self.get_child(side).insert(data)
 
 	def search(self, lead_value):
@@ -128,6 +124,14 @@ class TreeNode:
 		return out
 
 	def rotate(self, child_side, rotation_side=None):
+		"""This method rotates a node given its parent as object and its side and the rotation direction as arguments.
+		In case that the node to rotate is an orphan, i.e., the root node, the object becomes the node self
+		and the first argument the direction of the rotation. In this last case this method must be used indirectly
+		through the SBTree method 'rotate_root' to allow this composite class to update its root attribute properly.
+		The return object is the final highest in hierarchy node, that is, the initial father node or the
+		final rotated node when the original was an orphan."""
+		if self is None:
+			raise ValueError(f'Cannot rotate a non existing node!')
 		if rotation_side is None:
 			parent_node 	= None
 			rotating_node = self
@@ -135,21 +139,33 @@ class TreeNode:
 		else:
 			parent_node 	= self
 			rotating_node = self.get_child(child_side)
+			if rotating_node is None:
+				raise ValueError(f'Parent node {parent_node.data} has no {"right" if side_as_bool(rotation_side) else "left"} child!')
+		# if parent_node is not None:
+		# 	print('================	PARENT NODE: ', parent_node.data)
+		# 	print(parent_node, '================')
+		# print('================ ROTATING NODE: ', rotating_node.data)
+		# print(rotating_node, '================')
+		# print('================ ROTATION SIDE: ', rotation_side, '================')
 
-
-
-
-		# print('================')
-		# print(parent_node, rotating_node.data, rotation_side)
-		# print('================')
 		ascending_child = rotating_node.get_child(oposite_side(rotation_side))
-		#print(parent_node, '\n', rotating_node, '\n', ascending_child)
-
-		rotating_node.append_child(oposite_side(rotation_side), ascending_child.get_child(rotation_side))
+		if ascending_child is None:
+			raise ValueError(f'Rotating node {rotating_node.data.leader} has no {"right" if side_as_bool(oposite_side(rotation_side)) else "left"} child!')
+		# print('================ ASCENDING CHILD: ', ascending_child.data)
+		# print(ascending_child)
+		adopted_grand_child = ascending_child.get_child(rotation_side)
+		rotating_node.append_child(oposite_side(rotation_side), adopted_grand_child)
+		# print('================ ROTATING NODE AFTER ADOPTION: ')
+		# print(rotating_node)
 		ascending_child.append_child(rotation_side, rotating_node)
-		if parent_node is not None:
-			parent_node.append_child(rotation_side, ascending_child)
-		return self
+		# print('================ ASCENDING CHILD AFTER SECOND ADOPTION: ')
+		# print(ascending_child)
+		# print('===================== FINAL TREE =====================')
+		if parent_node is None:
+			return ascending_child
+		else:
+			parent_node.append_child(child_side, ascending_child)
+		return parent_node
 
 
 class BSTree:
@@ -159,6 +175,9 @@ class BSTree:
 		self.root = TreeNode(data[0])
 		for n in data[1:]:
 			self.root.insert(n)
+
+	def rotate_root(self, rotation_side):
+		self.root = self.root.rotate(rotation_side, None)
 
 	def __str__(self):
 		return str(self.root)
@@ -171,12 +190,12 @@ if __name__ == '__main__':
 	my_data = [Data(x) for x in [5, 2, 10, 7, 15, 12, 20, 30, 6, 8]]
 	my_tree = BSTree(my_data)
 	#print(my_tree.root.child_left)
-	print(my_tree)
+	#print(my_tree)
 	#print([n for n in my_tree.root.ordered_array()])
 	#print(TreeNode.__doc__)
-	print('L rotation over 10')
-	print(my_tree.root.rotate(Side.R, Side.L))
-
+	print(my_tree)
+	my_tree.rotate_root(Side.L)
+	print(my_tree)
 
 #   ┌─: 2
 # :5
