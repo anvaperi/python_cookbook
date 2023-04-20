@@ -1,55 +1,68 @@
-from collections import namedtuple
+def style(any_str, *, bold=False, italics=False, underline=False, strikethrough=False, hex_color=15, hex_on_color=0):
+	"""This function adds ansi codes to the input string to get the desired text style on the console.
+	text emphasis parameters are booleans, e.g. bold=True. Color parameters are numbers from 0 to 15 to represent
+	the hexadecimal values of all the cmyk substractive color system, where k stands for darker.
+	The equivalences between ansi colours and cmyk are as follows:
 
-# COLORS
-background_color_code = 10
-brighter_color_code = 60
-color_code_offset = 30
-reset_color_code = 39
-colors = ['black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'grey']
-code_str = lambda code: '\033[' + str(code) + 'm'
+		color: 			white - white - yellow - yellow - magenta	-	magenta	-	red 	-	red		-
+		brightness:	light - dark  - light  - dark   - light		-	dark		-	light	-	dark	-
+		cmyk_bin:		0000  - 0001  - 0010   - 0011   - 0100		-	0101		-	0110	-	0111	-
+		cmyk_dec:		0			- 1			-	2			 - 3			-	4				-	5				-	6			-	7			-
+		ansi:  			97    - 37	  - 93     - 33     - 95			-	35			- 91		-	31		-
 
-encode_color = lambda color_name, brighter_check, bckgrnd_check: \
-	color_code_offset + colors.index(color_name) +\
-	brighter_color_code * brighter_check + \
-	background_color_code * bckgrnd_check
+		color:			-	cyan	- cyan	-	green	-	green	-	blue	-	blue	-	black	-	black
+		brightness: -	light	-	dark	- light	-	dark	-	light	-	dark	-	light	-	dark
+		cmyk_bin:		-	1000	-	1001	-	1010	-	1011	-	1100	-	1101	-	1110	-	1111
+		cmyk_dec: 	-	8			-	9			-	10		-	11		-	12		-	13		-	14		-	15
+		ansi:				-	96		-	36		-	92		-	32		-	94		-	34		-	90		-	30
+	"""
+	def ansi_str(ansi):
+		"""Format input ansi code so the output makes the string to be printed look as desired."""
+		return '\033[' + str(ansi) + 'm'
+	reset_all = 0
 
-colorise_text = lambda color_name, brighter_check=False, bckgrnd_check=False, input_str='': \
-	code_str(encode_color(color_name, brighter_check, bckgrnd_check)) + \
-	input_str + code_str(reset_color_code)
+	# COLORS
+	def get_color_ansi(hex_color):
+		"""Takes an input number ranging from 0 to 15 that represents a cmyk color and returns
+		its corresponding ansi code."""
+		lighter_color_ansi_offset = 90
+		darker_color_ansi_offset = 30
+		# reset_color_ansi = 39
+		cmy_to_ansi_colors = black, red, green, yellow, blue, magenta, cyan, white = (7, 3, 5, 1, 6, 2, 4, 0)
+		if not 0 <= hex_color <= 15 or type(hex_color) != int:
+			raise ValueError('color argument must be an integer between 0 and 15!')
+		cmy, k = divmod(hex_color, 2)
+		offset = darker_color_ansi_offset if k else lighter_color_ansi_offset
+		return offset + cmy_to_ansi_colors.index(cmy)
 
-text_color 			= namedtuple('text_color', 'background foreground')
+	def get_on_color_ansi(hex_on_color):
+		"""Takes an input number ranging from 0 to 15 that represents a cmyk color and returns
+		its corresponding ansi code for a background color."""
+		on_color_ansi_offset = 10
+		return on_color_ansi_offset + get_color_ansi(hex_on_color)
 
-Cmyk_color 			= namedtuple('Cmyk_color', 'c m y k')
-bright_grey 		= Cmyk_color(False,  False,  False,  False)
-dark_grey 			= Cmyk_color(False,  False,  False,  True)
-bright_yellow 	= Cmyk_color(False,  False,  True,  False)
-dark_yellow 		= Cmyk_color(False,  False,  True,  True)
-bright_magenta 	= Cmyk_color(False,  True,  False,  False)
-dark_magenta   	= Cmyk_color(False,  True,  False,  True)
-bright_red 			= Cmyk_color(False,  True,  True,  False)
-dark_red 				= Cmyk_color(False,  True,  True,  True)
-bright_cyan 		= Cmyk_color(True,  False,  False,  False)
-dark_cyan 			= Cmyk_color(True,  False,  False,  True)
-bright_green 		= Cmyk_color(True,  False,  True,  False)
-dark_green 			= Cmyk_color(True,  False,  True,  True)
-bright_blue 		= Cmyk_color(True,  True,  False,  False)
-dark_blue 			= Cmyk_color(True,  True,  False,  True)
-bright_black 		= Cmyk_color(True,  True,  True,  False)
-dark_black 			= Cmyk_color(True,  True,  True,  True)
+	# EMPHASIS
+	strikethrough_ansi = 9
+	underline_ansi = 4
+	italics_ansi = 3
+	bold_ansi = 1
 
-
-# EMPHASIS
-strikethrough_code = 9
-underscore_code = 4
-italics_code = 3
-bold_code = 1
-reset_all = 0
-
-in_bold 				= lambda input_str: code_str(bold_code) 					+ input_str + code_str(reset_all)
-in_italics 			= lambda input_str: code_str(italics_code) 				+ input_str + code_str(reset_all)
-underscored			= lambda input_str: code_str(underscore_code) 		+ input_str + code_str(reset_all)
-strikethrought 	= lambda input_str: code_str(strikethrough_code) 	+ input_str + code_str(reset_all)
+	end = ansi_str(reset_all)
+	start = []
+	if bold:					start += [bold_ansi]
+	if italics: 			start += [italics_ansi]
+	if underline: 		start += [underline_ansi]
+	if strikethrough: start += [strikethrough_ansi]
+	start += [get_color_ansi(hex_color), get_on_color_ansi(hex_on_color)]
+	start = ansi_str(';'.join([str(c) for c in start]))
+	return start + any_str + end
 
 
 if __name__ == '__main__':
-	pass
+	print(style("--It's me! --Hi.", bold=True, hex_color=6))
+	print(style("--I'm the problem it's me", bold=True, hex_color=7))
+	print('--At tee time everybody agrees')
+
+
+
+
