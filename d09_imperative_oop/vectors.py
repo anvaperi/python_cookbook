@@ -28,7 +28,7 @@ class Vector:
 
 	def __mul__(self, other):
 		return Vector(
-			self.y * other.z -  self.z * other.y,
+			self.y * other.z - self.z * other.y,
 			self.z * other.x - self.x * other.z,
 			self.x * other.y - self.y * other.x
 		)

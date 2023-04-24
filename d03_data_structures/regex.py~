@@ -1,0 +1,30 @@
+import re
+
+pattern = '^a...s$'
+print([re.match(pattern, each_string) for each_string in ['abs', 'alias', 'abyss', 'Alias', 'An Abacus'] ])
+
+charsetptt = '[a-c]' # [0-39] is the same as [01239]
+print([re.match(charsetptt, each_string) for each_string in ['a', 'ac', 'Hey Jude', 'abc de ca']])
+
+notinset = '[^h-z]'
+print([re.match(notinset, each_str) for each_str in ['aeg', '34b', 'ewx', 'x4']])
+
+anychar = '.'
+print([re.match(anychar, each_str) for each_str in ['c', '\n']])
+
+startswithab = '^ab'
+print([re.match(startswithab, word) for word in ['abc', 'acb']])
+
+endswith13 = '13$'
+print([re.match(endswith13, word) for word in ['er1413', '13\n']]) # !! review
+
+noneormany01s = '..(01)*..'
+print([re.match(noneormany01s, word) for word in ['a0101010101bc', 'acb']])
+
+oneormanylove = '.(love)+'
+print([re.match(oneormanylove, word) for word in ['alovelove or love me right now!!bc', 'alive cb']])
+
+zerooronething = '.*(thing)+'
+print([re.match(zerooronething, word) for word in [' slkjfdskfljf lkjsdf lkjds lfjk bc', 'alithingve cb']])
+
+
