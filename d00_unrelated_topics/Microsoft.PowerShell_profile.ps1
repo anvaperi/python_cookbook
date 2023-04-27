@@ -1,3 +1,4 @@
+# notepad $PROFILE
 # C:\Users\donan\OneDrive\OneDrive Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 
 console = $host.ui.rawui
@@ -24,4 +25,5 @@ Set-PSReadLineOption -Colors @{ "Type"="`e[33;40m" }
 
 # set-location C:\Users\donan\OneDrive\OneDrive Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 Set-Location C:\Users\donan
+function prompt { "PS> " }
 clear-host

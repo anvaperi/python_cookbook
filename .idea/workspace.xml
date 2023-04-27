@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00f0f536-0cb4-4757-b362-5069ebfa26b7" name="Changes" comment="Updated textformat.py">
-      <change afterPath="$PROJECT_DIR$/d03_data_structures/regex2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/sieve_of_eratosthenes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pep8.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/d09_imperative_oop/vectors.py" beforeDir="false" afterPath="$PROJECT_DIR$/d09_imperative_oop/vectors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/textformat.py" beforeDir="false" afterPath="$PROJECT_DIR$/textformat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/d03_data_structures/stack.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_04_2023_13_07_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_04_2023_13_07__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/d00_unrelated_topics/Microsoft.PowerShell_profile.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/d00_unrelated_topics/Microsoft.PowerShell_profile.ps1" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
